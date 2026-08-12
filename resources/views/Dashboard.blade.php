@@ -1,0 +1,1265 @@
+@extends('layouts.app')
+
+@section('content')
+
+<!-- HERO SLIDER -->
+<section class="relative w-full h-[90vh] overflow-hidden group">
+
+    <!-- SLIDES -->
+    <div id="slider" class="w-full h-full relative">
+
+        <!-- SLIDE 1 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="/images/slider1.jpeg" class="w-full h-full object-cover">
+        </div>
+
+        <!-- SLIDE 2 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="/images/slider2.jpeg" class="w-full h-full object-cover">
+        </div>
+
+        <!-- SLIDE 3 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-[1500]">
+            <img src="/images/slider3.jpeg" class="w-full h-full object-cover">
+        </div>
+
+    </div>
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div class="text-center text-white px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                Temukan Mobil Impian Anda
+            </h1>
+            <p class="text-lg md:text-xl mb-6">
+                Hyundai Bekasi - Tambun Selatan Official
+            </p>
+            <a href="#" class="bg-white text-black px-6 py-3 font-semibold hover:bg-gray-200 transition">
+                Lihat Kendaraan
+            </a>
+        </div>
+    </div>
+
+    <!-- BUTTON LEFT -->
+    <button onclick="prevSlide()" 
+        class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
+        &#10094;
+    </button>
+
+    <!-- BUTTON RIGHT -->
+    <button onclick="nextSlide()" 
+        class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
+        &#10095;
+    </button>
+
+</section>
+
+<!-- SECTION MOBIL -->
+<section class="py-20 bg-white relative">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- TITLE -->
+        <!-- TITLE -->
+        <div class="mb-20 text-center reveal opacity-0 translate-y-10 transition-all duration-700" id="sectionTitle">
+
+            <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
+
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+                Eksplorasi Kendaraan Hyundai
+            </h2>
+
+            <p class="text-gray-500 mt-3 max-w-xl mx-auto leading-relaxed">
+                Temukan kombinasi sempurna antara desain modern, performa, dan teknologi inovatif dari Hyundai.
+            </p>
+
+            <!-- CATEGORY BUTTON -->
+            <div class="flex justify-center gap-3 mt-8 flex-wrap">
+
+                <button onclick="filterCategory(event,'all')" 
+                    class="category-btn active px-5 py-2 rounded-full border border-[#0b1f3a] text-[#0b1f3a] font-medium transition hover:bg-[#0b1f3a] hover:text-white">
+                    Semua
+                </button>
+
+                <button onclick="filterCategory(event,'suv')" 
+                    class="category-btn px-5 py-2 rounded-full border text-gray-600 hover:border-[#0b1f3a] hover:text-[#0b1f3a] transition">
+                    SUV
+                </button>
+
+                <button onclick="filterCategory(event,'mpv')" 
+                    class="category-btn px-5 py-2 rounded-full border text-gray-600 hover:border-[#0b1f3a] hover:text-[#0b1f3a] transition">
+                    MPV
+                </button>
+
+                <button onclick="filterCategory(event,'ev')" 
+                    class="category-btn px-5 py-2 rounded-full border text-gray-600 hover:border-[#0b1f3a] hover:text-[#0b1f3a] transition">
+                    EV
+                </button>
+
+                <button onclick="filterCategory(event,'crossover')" 
+                    class="category-btn px-5 py-2 rounded-full border text-gray-600 hover:border-[#0b1f3a] hover:text-[#0b1f3a] transition">
+                    Crossover
+                </button>
+
+            </div>
+        </div>
+        <!-- SLIDER -->
+        <div class="relative">
+
+            <!-- LEFT -->
+            <button onclick="scrollLeftCard()" 
+                class="absolute -left-6 top-1/2 -translate-y-1/2 bg-[#0b1f3a] text-white w-12 h-12 rounded-full shadow-xl hover:bg-[#16345f] transition z-10">
+                &#10094;
+            </button>
+
+            <!-- CONTAINER -->
+            <div id="cardSlider" class="flex overflow-x-auto gap-8 pb-6 scroll-smooth no-scrollbar">
+
+                <!-- CARD 1 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="suv">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 350 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Hyundai Creta</h3>
+                            <span class="text-sm text-gray-300">SUV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-green-500 text-xs px-3 py-1 rounded-full">Promo</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">DP ringan</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="ev">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="crossover">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="ev">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                                <!-- CARD 2 -->
+                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
+                    <div class="relative">
+                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
+                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
+                            Rp 420 Juta
+                        </div>
+                    </div>
+
+                    <div class="pt-8 pb-6 px-5">
+                        <div class="flex justify-between">
+                            <h3 class="font-semibold text-lg">Stargazer</h3>
+                            <span class="text-sm text-gray-300">MPV</span>
+                        </div>
+
+                        <div class="mt-3">
+                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
+                        </div>
+
+                        <div class="border-t border-white/20 my-4"></div>
+
+                        <div class="flex justify-between">
+                            <p class="text-sm text-gray-300">Bunga 0%</p>
+                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+                                Detail
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAMBAH CARD LAIN SAMA AJA POLANYA -->
+                <!-- tinggal ganti data-category -->
+
+            </div>
+
+            <!-- RIGHT -->
+            <button onclick="scrollRightCard()" 
+                class="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#0b1f3a] text-white w-12 h-12 rounded-full shadow-xl hover:bg-[#16345f] transition z-10">
+                &#10095;
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION SALES -->
+<section class="py-28 bg-gray-200">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <div class="grid md:grid-cols-2 gap-16 items-center">
+
+            <!-- LEFT: FOTO + NAMA -->
+            <div id="salesImage"
+                class="text-center opacity-0 translate-y-10 transition-all duration-1000">
+
+                <!-- FOTO -->
+                <img src="/images/profile.jpeg"
+                    class="w-full max-w-sm mx-auto rounded-2xl object-cover">
+
+                <!-- NAMA -->
+                <h3 class="mt-6 text-xl font-semibold text-gray-900">
+                    Muhammad Daffa Syaddad
+                </h3>
+
+                <!-- DESKAT -->
+                <p class="text-gray-500 mt-2 max-w-sm mx-auto">
+                    Saya siap membantu Anda menemukan jenis kendaraan yang cocok sesuai dengan budget dan keinginan Anda.
+                </p>
+
+            </div>
+
+            <!-- RIGHT: DESKRIPSI -->
+            <div id="salesText"
+                class="opacity-0 translate-y-10 transition-all duration-1000">
+
+                <!-- TITLE -->
+                <h2 class="text-3xl md:text-4xl font-semibold text-[#0b1f3a] mb-6">
+                    Hyundai Bogor
+                </h2>
+
+                <!-- DESC -->
+                <div class="space-y-4 text-gray-600 leading-relaxed">
+
+                    <p>
+                        Dealer Hyundai Sholeh Iskandar Bogor, kami memberikan segala kemudahan dan kepuasan pelanggan dalam memilih varian mobil terbaik.
+                    </p>
+
+                    <p>
+                        Menjadi prioritas utama kami untuk menciptakan kenyamanan pelanggan dalam setiap proses pembelian.
+                    </p>
+
+                    <p>
+                        Layanan konsultasi kami kini sepenuhnya online. Melalui website ini, Anda dapat terhubung langsung dengan sales consultant kami dengan cara yang sederhana, aman, dan nyaman.
+                    </p>
+
+                </div>
+
+                <!-- CTA -->
+                <div class="mt-8">
+                    <a href="https://wa.me/6285121546050?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20mobil%20Hyundai.%20Boleh%20minta%20info%20lebih%20lanjut%20mengenai%20unit%2C%20promo%2C%20dan%20test%20drive%3F%20Terima%20kasih%20🙏"
+                    target="_blank"
+                    class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full font-medium hover:bg-[#16345f] transition">
+                        Hubungi Sekarang
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION POSTER SLIDER -->
+<section class="py-24 bg-white">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- TITLE (REVEAL) -->
+        <div class="text-center mb-16 reveal">
+
+            <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
+
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900">
+                Inovasi & Keunggulan Hyundai
+            </h2>
+
+            <p class="text-gray-500 mt-3 max-w-xl mx-auto leading-relaxed">
+                Temukan teknologi, desain, dan pengalaman berkendara terbaik yang dirancang untuk masa depan Anda.
+            </p>
+
+        </div>
+
+        <!-- SLIDER -->
+        <div class="relative overflow-hidden">
+
+            <div id="posterSlider" class="flex transition-all duration-700 ease-in-out">
+
+                <!-- SLIDE 1 -->
+                <div class="min-w-full flex flex-col md:flex-row items-center gap-12">
+
+                    <!-- IMAGE (LEBIH BESAR) -->
+                    <div class="md:w-1/2">
+                        <img src="/images/poster1.jpg" 
+                            class="w-full h-auto object-contain rounded-2xl shadow-xl">
+                    </div>
+
+                    <!-- TEXT -->
+                    <div class="md:w-1/2 max-w-xl">
+                        <h2 class="text-4xl md:text-5xl font-semibold text-[#0b1f3a] mb-6 leading-tight">
+                            Hyundai Future Mobility
+                        </h2>
+
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Jelajahi inovasi terbaru Hyundai dengan teknologi ramah lingkungan dan performa tinggi yang dirancang untuk masa depan berkendara Anda.
+                        </p>
+
+                        <a href="#" 
+                        class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-[#16345f] transition">
+                            Pelajari Lebih Lanjut
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="min-w-full flex flex-col md:flex-row items-center gap-12">
+
+                    <div class="md:w-1/2">
+                        <img src="/images/poster2.jpg" 
+                            class="w-full h-auto object-contain rounded-2xl shadow-xl">
+                    </div>
+
+                    <div class="md:w-1/2 max-w-xl">
+                        <h2 class="text-4xl md:text-5xl font-semibold text-[#0b1f3a] mb-6 leading-tight">
+                            Desain Modern & Elegan
+                        </h2>
+
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Perpaduan sempurna antara desain futuristik dan kenyamanan maksimal dalam setiap kendaraan Hyundai.
+                        </p>
+
+                        <a href="#" 
+                        class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-[#16345f] transition">
+                            Lihat Detail
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="min-w-full flex flex-col md:flex-row items-center gap-12">
+
+                    <div class="md:w-1/2">
+                        <img src="/images/poster3.jpg" 
+                            class="w-full h-auto object-contain rounded-2xl shadow-xl">
+                    </div>
+
+                    <div class="md:w-1/2 max-w-xl">
+                        <h2 class="text-4xl md:text-5xl font-semibold text-[#0b1f3a] mb-6 leading-tight">
+                            Desain Modern & Elegan
+                        </h2>
+
+                        <p class="text-gray-600 text-lg leading-relaxed mb-8">
+                            Perpaduan sempurna antara desain futuristik dan kenyamanan maksimal dalam setiap kendaraan Hyundai.
+                        </p>
+
+                        <a href="#" 
+                        class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-[#16345f] transition">
+                            Lihat Detail
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <!-- BUTTON LEFT -->
+            <button onclick="prevPoster()" 
+                class="absolute left-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-md border border-gray-200 w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition">
+                &#10094;
+            </button>
+
+            <!-- BUTTON RIGHT -->
+            <button onclick="nextPoster()" 
+                class="absolute right-4 top-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-md border border-gray-200 w-12 h-12 rounded-full shadow-lg flex items-center justify-center hover:bg-white transition">
+                &#10095;
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+<br>
+<br>
+
+<!-- SECTION BERITA -->
+<section class="py-24 bg-gray-200">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- TITLE -->
+        <div class="text-center mb-16 reveal">
+            <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
+
+            <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
+                Berita & Informasi Hyundai
+            </h2>
+
+            <p class="text-gray-500 mt-3 max-w-xl mx-auto">
+                Ikuti perkembangan terbaru, inovasi, dan informasi menarik seputar Hyundai.
+            </p>
+        </div>
+
+        <!-- GRID -->
+        <div class="grid md:grid-cols-3 gap-8">
+
+            <!-- CARD 1 -->
+            <a href="https://www.hyundai.com" target="_blank" 
+               class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 reveal">
+
+                <div class="overflow-hidden">
+                    <img src="/images/poster3.jpg" 
+                         class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
+                </div>
+
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a] transition">
+                        Hyundai Luncurkan Mobil Listrik Terbaru
+                    </h3>
+
+                    <p class="text-gray-500 text-sm mt-2 leading-relaxed">
+                        Hyundai kembali menghadirkan inovasi kendaraan listrik dengan teknologi terbaru yang ramah lingkungan.
+                    </p>
+                </div>
+
+            </a>
+
+            <!-- CARD 2 -->
+            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+                <div class="overflow-hidden">
+                    <img src="/images/poster1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
+                        Hyundai Raih Penghargaan Global
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Hyundai mendapatkan penghargaan internasional atas desain dan teknologi inovatif.
+                    </p>
+                </div>
+            </a>
+
+            <!-- CARD 3 -->
+            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+                <div class="overflow-hidden">
+                    <img src="/images/poster2.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
+                        Teknologi Keamanan Hyundai
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Fitur keamanan terbaru Hyundai memberikan perlindungan maksimal saat berkendara.
+                    </p>
+                </div>
+            </a>
+
+            <!-- CARD 4 -->
+            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+                <div class="overflow-hidden">
+                    <img src="/images/poster1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
+                        Hyundai Perluas Jaringan Dealer
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Hyundai terus memperluas jaringan dealer untuk meningkatkan pelayanan pelanggan.
+                    </p>
+                </div>
+            </a>
+
+            <!-- CARD 5 -->
+            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+                <div class="overflow-hidden">
+                    <img src="/images/poster2.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
+                        Promo Spesial Hyundai 2026
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Nikmati berbagai promo menarik untuk pembelian kendaraan Hyundai tahun ini.
+                    </p>
+                </div>
+            </a>
+
+            <!-- CARD 6 -->
+            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+                <div class="overflow-hidden">
+                    <img src="/images/poster3.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                </div>
+                <div class="p-5">
+                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
+                        Hyundai Fokus Kendaraan Masa Depan
+                    </h3>
+                    <p class="text-gray-500 text-sm mt-2">
+                        Hyundai berkomitmen menghadirkan kendaraan masa depan dengan teknologi canggih.
+                    </p>
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SECTION GOOGLE MAPS -->
+<section class="py-28 bg-white overflow-hidden">
+
+    <div class="max-w-7xl mx-auto px-6">
+
+        <!-- TITLE -->
+        <div class="text-center mb-14 reveal-item">
+
+            <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
+
+            <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
+                Kunjungi Dealer Hyundai Kami
+            </h2>
+
+            <p class="text-gray-500 mt-3 max-w-xl mx-auto">
+                Datang langsung ke showroom Hyundai untuk konsultasi,
+                melihat unit terbaru, dan melakukan test drive.
+            </p>
+
+        </div>
+
+
+        <!-- MAP CARD -->
+        <div 
+        class="
+        relative 
+        rounded-[32px]
+        overflow-hidden
+        shadow-2xl
+        border
+        border-gray-200
+        group
+        reveal-item
+        "
+        >
+
+            <!-- DECORATION -->
+            <div class="
+            absolute 
+            -top-20 
+            -right-20 
+            w-72 
+            h-72 
+            bg-[#0b1f3a]/10 
+            rounded-full 
+            blur-3xl
+            ">
+            </div>
+
+
+            <!-- GOOGLE MAP -->
+            <div class="
+            w-full 
+            h-[500px]
+            md:h-[600px]
+            transition
+            duration-700
+            group-hover:scale-[1.02]
+            ">
+
+                <iframe
+                src="https://maps.google.com/maps?q=Hyundai%20Kalimalang%20Official&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                class="
+                w-full 
+                h-full
+                border-0
+                "
+                loading="lazy">
+                </iframe>
+
+            </div>
+
+
+
+            <!-- LOCATION CARD -->
+            <div 
+            class="
+            absolute 
+            bottom-6 
+            left-1/2 
+            -translate-x-1/2
+            bg-white/95
+            backdrop-blur-md
+            rounded-2xl
+            shadow-xl
+            px-8
+            py-5
+            w-[90%]
+            md:w-auto
+            text-center
+            "
+            >
+
+                <h3 class="
+                font-semibold
+                text-[#0b1f3a]
+                text-lg
+                ">
+                    Hyundai Kalimalang Official
+                </h3>
+
+
+                <p class="
+                text-gray-500
+                text-sm
+                mt-1
+                ">
+                    
+                Dealer resmi Hyundai Kalimalang Jakarta Timur
+                </p>
+
+
+                <a 
+                href="https://maps.app.goo.gl/rgXaN5zQS2yV2C2G6"
+                target="_blank"
+                class="
+                inline-flex
+                items-center
+                gap-2
+                mt-4
+                bg-[#0b1f3a]
+                text-white
+                px-6
+                py-2.5
+                rounded-full
+                text-sm
+                font-medium
+                hover:bg-[#16345f]
+                transition
+                "
+                >
+
+                    Buka Google Maps
+
+                    <span>
+                    →
+                    </span>
+
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<!-- SECTION TEST DRIVE -->
+<section class="py-24 bg-gray-200">
+
+    <div class="max-w-5xl mx-auto px-6">
+
+        <!-- HEADER -->
+        <div class="text-center mb-12 reveal-item">
+            <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
+                Booking Test Drive
+            </h2>
+            <p class="text-gray-500 mt-2">
+                Jadwalkan test drive kendaraan Hyundai pilihan Anda dengan mudah
+            </p>
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white border border-gray-200 rounded-2xl shadow-lg p-8 md:p-10 reveal-item delay-1">
+
+            <form id="testDriveForm" class="grid md:grid-cols-2 gap-6">
+
+                <!-- NAMA -->
+                <div class="reveal-item delay-2">
+                    <label class="text-sm text-gray-600">Nama Lengkap</label>
+                    <input type="text" id="nama" required
+                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
+                </div>
+
+                <!-- HP -->
+                <div class="reveal-item delay-2">
+                    <label class="text-sm text-gray-600">Nomor WhatsApp</label>
+                    <input type="text" id="hp" required
+                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
+                </div>
+
+                <!-- MOBIL -->
+                <div class="md:col-span-2 reveal-item delay-3">
+                    <label class="text-sm text-gray-600">Pilih Kendaraan</label>
+                    <select id="mobil" required
+                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
+                        <option value="">-- Pilih Mobil Hyundai --</option>
+                        <option>Hyundai Creta</option>
+                        <option>Hyundai Stargazer</option>
+                        <option>Hyundai Ioniq 5</option>
+                        <option>Hyundai Palisade</option>
+                    </select>
+                </div>
+
+                <!-- TANGGAL -->
+                <div class="reveal-item delay-4">
+                    <label class="text-sm text-gray-600">Tanggal Test Drive</label>
+                    <input type="date" id="tanggal" required
+                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a]">
+                </div>
+
+                <!-- WAKTU -->
+                <div class="reveal-item delay-4">
+                    <label class="text-sm text-gray-600">Waktu</label>
+                    <input type="time" id="waktu" required
+                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a]">
+                </div>
+
+                <!-- BUTTON -->
+                <div class="md:col-span-2 mt-4 reveal-item delay-5">
+                    <button type="submit"
+                        class="w-full py-3 rounded-lg bg-[#0b1f3a] text-white font-semibold hover:bg-[#16345f] transition">
+                        Booking Test Drive
+                    </button>
+
+                    <p class="text-center text-gray-400 text-sm mt-3">
+                        Anda akan diarahkan ke WhatsApp setelah submit
+                    </p>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+</section>
+
+@endsection
+
+@push('scripts')
+
+<!-- SCRIPT HERO SLIDER -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
+
+        function showSlide(i) {
+            slides.forEach(slide => slide.classList.add('hidden'));
+            slides[i].classList.remove('hidden');
+        }
+
+        function nextSlide() {
+            index = (index + 1) % slides.length;
+            showSlide(index);
+        }
+
+        function prevSlide() {
+            index = (index - 1 + slides.length) % slides.length;
+            showSlide(index);
+        }
+
+        // BIKIN GLOBAL (biar bisa dipanggil tombol)
+        window.nextSlide = nextSlide;
+        window.prevSlide = prevSlide;
+
+        // AUTO SLIDE
+        setInterval(nextSlide, 5000);
+
+    });
+</script>
+
+<!-- SLIDER CARD + FILTER MOBIL -->
+<script>
+const slider = document.getElementById('cardSlider');
+
+function scrollRightCard() {
+    const max = slider.scrollWidth - slider.clientWidth;
+    if (slider.scrollLeft >= max - 5) {
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
+    } else {
+        slider.scrollBy({ left: 380, behavior: 'smooth' });
+    }
+}
+
+function scrollLeftCard() {
+    if (slider.scrollLeft <= 0) {
+        slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+    } else {
+        slider.scrollBy({ left: -380, behavior: 'smooth' });
+    }
+}
+
+// FILTER
+function filterCategory(e, category) {
+    const cards = document.querySelectorAll('.card');
+    const buttons = document.querySelectorAll('.category-btn');
+
+    buttons.forEach(btn => btn.classList.remove('bg-[#0b1f3a]', 'text-white'));
+    e.target.classList.add('bg-[#0b1f3a]', 'text-white');
+
+    cards.forEach(card => {
+        if (category === 'all' || card.dataset.category === category) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    // reset posisi slider
+    slider.scrollTo({ left: 0, behavior: 'smooth' });
+}
+
+// AUTO SLIDE
+setInterval(scrollRightCard, 4000);
+</script>
+
+<!-- REVEAL ANIMATION -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const elements = document.querySelectorAll('.reveal');
+
+    function checkScroll() {
+        const triggerBottom = window.innerHeight * 0.85;
+
+        elements.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+
+            if (top < triggerBottom) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    // jalan pertama kali (IMPORTANT)
+    checkScroll();
+
+    // jalan tiap scroll
+    window.addEventListener('scroll', checkScroll);
+
+});
+</script>
+
+<!-- SLIDER CARD -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const slider = document.getElementById('cardSlider');
+
+    window.scrollRightCard = function () {
+        const max = slider.scrollWidth - slider.clientWidth;
+
+        if (slider.scrollLeft >= max - 5) {
+            slider.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: 380, behavior: 'smooth' });
+        }
+    }
+
+    window.scrollLeftCard = function () {
+        if (slider.scrollLeft <= 0) {
+            slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+        } else {
+            slider.scrollBy({ left: -380, behavior: 'smooth' });
+        }
+    }
+
+    window.filterCategory = function (e, category) {
+        const cards = document.querySelectorAll('.card');
+        const buttons = document.querySelectorAll('.category-btn');
+
+        // active button
+        buttons.forEach(btn => btn.classList.remove('bg-[#0b1f3a]', 'text-white'));
+        e.target.classList.add('bg-[#0b1f3a]', 'text-white');
+
+        // filter
+        cards.forEach(card => {
+            if (category === 'all' || card.dataset.category === category) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
+    }
+
+    // AUTO SLIDE
+    setInterval(() => {
+        scrollRightCard();
+    }, 5000);
+
+});
+</script>
+
+<!-- SALES ANIMATION  -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const image = document.getElementById('salesImage');
+    const text = document.getElementById('salesText');
+
+    function showSales() {
+        const trigger = window.innerHeight - 120;
+
+        if (image.getBoundingClientRect().top < trigger) {
+            image.classList.remove('opacity-0', 'translate-y-10');
+            image.classList.add('opacity-100', 'translate-y-0');
+        }
+
+        if (text.getBoundingClientRect().top < trigger) {
+            text.classList.remove('opacity-0', 'translate-y-10');
+            text.classList.add('opacity-100', 'translate-y-0');
+        }
+    }
+
+    window.addEventListener('scroll', showSales);
+
+});
+</script>
+
+<!-- SCRIPT EVENT -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // =================
+    // REVEAL
+    // =================
+    const reveals = document.querySelectorAll('.reveal');
+
+    function revealScroll() {
+        const trigger = window.innerHeight * 0.85;
+
+        reveals.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+
+            if (top < trigger) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealScroll);
+    revealScroll();
+
+    // =================
+    // SLIDER
+    // =================
+    const slider = document.getElementById('posterSlider');
+    let index = 0;
+    const total = slider.children.length;
+
+    function update() {
+        slider.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    window.nextPoster = function () {
+        index = (index + 1) % total;
+        update();
+    }
+
+    window.prevPoster = function () {
+        index = (index - 1 + total) % total;
+        update();
+    }
+
+    setInterval(nextPoster, 5000);
+
+});
+</script>
+
+<!-- CSS ANIMASI -->
+<style>
+.reveal-item {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal-item.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Delay biar muncul satu-satu */
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+/* MAP PREMIUM ANIMATION */
+
+.reveal-item{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .9s ease;
+}
+
+
+.reveal-item.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+
+.map-glow{
+    animation: floating 5s infinite ease-in-out;
+}
+
+
+@keyframes floating{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-10px);
+    }
+
+}
+</style>
+
+<!-- TEST DRIVE SCRIPT-->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    // ================= REVEAL ANIMATION =================
+    const items = document.querySelectorAll('.reveal-item');
+
+    function revealOnScroll() {
+        const trigger = window.innerHeight * 0.85;
+
+        items.forEach(el => {
+            const top = el.getBoundingClientRect().top;
+
+            if (top < trigger) {
+                el.classList.add('active');
+            }
+        });
+    }
+
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll();
+
+    // ================= WHATSAPP =================
+    document.getElementById("testDriveForm").addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        let nama = document.getElementById("nama").value;
+        let hp = document.getElementById("hp").value;
+        let mobil = document.getElementById("mobil").value;
+        let tanggal = document.getElementById("tanggal").value;
+        let waktu = document.getElementById("waktu").value;
+
+        let pesan =
+`🚗 *BOOKING TEST DRIVE HYUNDAI*
+
+👤 Nama: ${nama}
+📱 WhatsApp: ${hp}
+🚘 Mobil: ${mobil}
+📅 Tanggal: ${tanggal}
+⏰ Waktu: ${waktu}
+
+Mohon konfirmasi jadwal test drive saya. Terima kasih 🙏`;
+
+        let noWa = "6285121546050";
+
+        let url = `https://wa.me/${noWa}?text=${encodeURIComponent(pesan)}`;
+
+        window.open(url, "_blank");
+    });
+
+});
+
+</script>
+@endpush
