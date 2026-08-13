@@ -103,268 +103,109 @@
 
             </div>
         </div>
-        <!-- SLIDER -->
-        <div class="relative">
+        <div id="cardSlider" 
+        class="flex overflow-x-auto gap-8 pb-6 scroll-smooth no-scrollbar">
 
-            <!-- LEFT -->
-            <button onclick="scrollLeftCard()" 
-                class="absolute -left-6 top-1/2 -translate-y-1/2 bg-[#0b1f3a] text-white w-12 h-12 rounded-full shadow-xl hover:bg-[#16345f] transition z-10">
-                &#10094;
-            </button>
 
-            <!-- CONTAINER -->
-            <div id="cardSlider" class="flex overflow-x-auto gap-8 pb-6 scroll-smooth no-scrollbar">
+        @foreach($mobil as $item)
 
-                <!-- CARD 1 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="suv">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 350 Juta
-                        </div>
-                    </div>
+        <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white"
+        data-category="{{ strtolower($item->kategori) }}">
 
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Hyundai Creta</h3>
-                            <span class="text-sm text-gray-300">SUV</span>
-                        </div>
 
-                        <div class="mt-3">
-                            <span class="bg-green-500 text-xs px-3 py-1 rounded-full">Promo</span>
-                        </div>
+            <div class="relative">
 
-                        <div class="border-t border-white/20 my-4"></div>
+                <img src="{{ asset('storage/'.$item->gambar) }}"
+                class="w-full h-56 object-cover">
 
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">DP ringan</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
+
+                <div class="absolute left-1/2 -bottom-5 
+                -translate-x-1/2 
+                bg-white text-[#0b1f3a] 
+                px-6 py-2 rounded-full 
+                font-semibold text-sm">
+
+
+                    {{ $item->harga }}
+
                 </div>
 
-                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="ev">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="crossover">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="ev">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                                <!-- CARD 2 -->
-                <div class="card min-w-[360px] bg-[#0b1f3a] rounded-2xl shadow-xl overflow-hidden text-white" data-category="mpv">
-                    <div class="relative">
-                        <img src="/images/mobil.jpg" class="w-full h-56 object-cover">
-                        <div class="absolute left-1/2 -bottom-5 -translate-x-1/2 bg-white text-[#0b1f3a] px-6 py-2 rounded-full font-semibold text-sm">
-                            Rp 420 Juta
-                        </div>
-                    </div>
-
-                    <div class="pt-8 pb-6 px-5">
-                        <div class="flex justify-between">
-                            <h3 class="font-semibold text-lg">Stargazer</h3>
-                            <span class="text-sm text-gray-300">MPV</span>
-                        </div>
-
-                        <div class="mt-3">
-                            <span class="bg-orange-500 text-xs px-3 py-1 rounded-full">Bestseller</span>
-                        </div>
-
-                        <div class="border-t border-white/20 my-4"></div>
-
-                        <div class="flex justify-between">
-                            <p class="text-sm text-gray-300">Bunga 0%</p>
-                            <button class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
-                                Detail
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- TAMBAH CARD LAIN SAMA AJA POLANYA -->
-                <!-- tinggal ganti data-category -->
 
             </div>
 
-            <!-- RIGHT -->
-            <button onclick="scrollRightCard()" 
-                class="absolute -right-6 top-1/2 -translate-y-1/2 bg-[#0b1f3a] text-white w-12 h-12 rounded-full shadow-xl hover:bg-[#16345f] transition z-10">
-                &#10095;
-            </button>
+
+
+            <div class="pt-8 pb-6 px-5">
+
+
+                <div class="flex justify-between">
+
+                    <h3 class="font-semibold text-lg">
+
+                        {{ $item->nama }}
+
+                    </h3>
+
+
+                    <span class="text-sm text-gray-300">
+
+                        {{ strtoupper($item->kategori) }}
+
+                    </span>
+
+
+                </div>
+
+
+
+                @if($item->badge)
+
+                <div class="mt-3">
+
+                    <span class="bg-green-500 text-xs px-3 py-1 rounded-full">
+
+                        {{ $item->badge }}
+
+                    </span>
+
+                </div>
+
+                @endif
+
+
+
+                <div class="border-t border-white/20 my-4"></div>
+
+
+
+                <div class="flex justify-between">
+
+                    <p class="text-sm text-gray-300">
+
+                        {{ $item->transmisi }}
+
+                    </p>
+
+
+                    <a href="{{ route('kendaraan.detail',$item->slug) }}"
+                    class="bg-white text-[#0b1f3a] px-4 py-1.5 rounded-full text-sm">
+
+                        Detail
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+        @endforeach
+
 
         </div>
 
@@ -472,21 +313,21 @@
 
                     <!-- IMAGE (LEBIH BESAR) -->
                     <div class="md:w-1/2">
-                        <img src="/images/poster1.jpg" 
+                        <img src="/images/GIIAS.avif" 
                             class="w-full h-auto object-contain rounded-2xl shadow-xl">
                     </div>
 
                     <!-- TEXT -->
                     <div class="md:w-1/2 max-w-xl">
                         <h2 class="text-4xl md:text-5xl font-semibold text-[#0b1f3a] mb-6 leading-tight">
-                            Hyundai Future Mobility
+                            Hyundai Perkenalkan Harga yang Semakin Terjangkau
                         </h2>
 
                         <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                            Jelajahi inovasi terbaru Hyundai dengan teknologi ramah lingkungan dan performa tinggi yang dirancang untuk masa depan berkendara Anda.
+                            yundai menghadirkan jajaran kendaraan yang semakin lengkap dengan pilihan powertrain yang seimbang di GIIAS 2026
                         </p>
 
-                        <a href="#" 
+                        <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2767" 
                         class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-[#16345f] transition">
                             Pelajari Lebih Lanjut
                         </a>
@@ -498,20 +339,20 @@
                 <div class="min-w-full flex flex-col md:flex-row items-center gap-12">
 
                     <div class="md:w-1/2">
-                        <img src="/images/poster2.jpg" 
+                        <img src="/images/worldcup.avif" 
                             class="w-full h-auto object-contain rounded-2xl shadow-xl">
                     </div>
 
                     <div class="md:w-1/2 max-w-xl">
                         <h2 class="text-4xl md:text-5xl font-semibold text-[#0b1f3a] mb-6 leading-tight">
-                            Desain Modern & Elegan
+                            Perluas Inisiatif FIFA World Cup 2026™ ke Dunia Gaming melalui Kolaborasi dengan Epic Games
                         </h2>
 
                         <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                            Perpaduan sempurna antara desain futuristik dan kenyamanan maksimal dalam setiap kendaraan Hyundai.
+                            Hyundai Motor Company hari ini mengumumkan kolaborasi dengan Epic Games untuk memperluas pengalaman FIFA World Cup 2026TM ke dunia gaming.
                         </p>
 
-                        <a href="#" 
+                        <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2739" 
                         class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-[#16345f] transition">
                             Lihat Detail
                         </a>
@@ -523,20 +364,20 @@
                 <div class="min-w-full flex flex-col md:flex-row items-center gap-12">
 
                     <div class="md:w-1/2">
-                        <img src="/images/poster3.jpg" 
+                        <img src="/images/MV.avif" 
                             class="w-full h-auto object-contain rounded-2xl shadow-xl">
                     </div>
 
                     <div class="md:w-1/2 max-w-xl">
                         <h2 class="text-4xl md:text-5xl font-semibold text-[#0b1f3a] mb-6 leading-tight">
-                            Desain Modern & Elegan
+                            Dari Macet Kota hingga Perjalanan Jarak Jauh, Hyundai Hadirkan MPV untuk Jalanan Indonesia
                         </h2>
 
                         <p class="text-gray-600 text-lg leading-relaxed mb-8">
-                            Perpaduan sempurna antara desain futuristik dan kenyamanan maksimal dalam setiap kendaraan Hyundai.
+                            Temukan MPV Hyundai yang Paling Sesuai dengan Kebutuhan Keluarga.
                         </p>
 
-                        <a href="#" 
+                        <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2720" 
                         class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full text-sm font-medium hover:bg-[#16345f] transition">
                             Lihat Detail
                         </a>
@@ -590,17 +431,17 @@
         <div class="grid md:grid-cols-3 gap-8">
 
             <!-- CARD 1 -->
-            <a href="https://www.hyundai.com" target="_blank" 
+            <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2688" target="_blank" 
                class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 reveal">
 
                 <div class="overflow-hidden">
-                    <img src="/images/poster3.jpg" 
+                    <img src="/images/belis.avif" 
                          class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
                 </div>
 
                 <div class="p-5">
                     <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a] transition">
-                        Hyundai Luncurkan Mobil Listrik Terbaru
+                        Hyundai dan TVS Berkolaborasi, Siap Garap Pasar Kendaraan Listrik Roda Tiga di India
                     </h3>
 
                     <p class="text-gray-500 text-sm mt-2 leading-relaxed">
@@ -611,73 +452,72 @@
             </a>
 
             <!-- CARD 2 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+            <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2684" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
                 <div class="overflow-hidden">
-                    <img src="/images/poster1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                    <img src="/images/ionic5.avif" class="w-full h-48 object-cover group-hover:scale-105 transition">
                 </div>
                 <div class="p-5">
                     <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Hyundai Raih Penghargaan Global
+                        Hyundai Perkenalkan IONIQ V di Tiongkok pada Auto China 2026
                     </h3>
                     <p class="text-gray-500 text-sm mt-2">
-                        Hyundai mendapatkan penghargaan internasional atas desain dan teknologi inovatif.
-                    </p>
+                        IONIQ V memulai debut sebagai model produksi IONIQ pertama yang didedikasikan untuk Tiongkok, disesuaikan dengan kebutuhan dan ekspektasi pelanggan lokal.                    </p>
                 </div>
             </a>
 
             <!-- CARD 3 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+            <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2678" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
                 <div class="overflow-hidden">
-                    <img src="/images/poster2.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                    <img src="/images/safety.avif" class="w-full h-48 object-cover group-hover:scale-105 transition">
                 </div>
                 <div class="p-5">
                     <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Teknologi Keamanan Hyundai
+                        Hyundai Jawab Kebutuhan untuk Kenyamanan dan Keamanan Lewat SmartSense dan Bluelink
                     </h3>
                     <p class="text-gray-500 text-sm mt-2">
-                        Fitur keamanan terbaru Hyundai memberikan perlindungan maksimal saat berkendara.
+                        Hyundai menghadirkan Hyundai SmartSense sebagai paket fitur keselamatan aktif yang terintegrasi.
                     </p>
                 </div>
             </a>
 
             <!-- CARD 4 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+            <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2711" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
                 <div class="overflow-hidden">
-                    <img src="/images/poster1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                    <img src="/images/headunit.avif" class="w-full h-48 object-cover group-hover:scale-105 transition">
                 </div>
                 <div class="p-5">
                     <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Hyundai Perluas Jaringan Dealer
+                        Hyundai Motor Bawa Semarak FIFA World Cup 2026TM ke dalam Mobil
                     </h3>
                     <p class="text-gray-500 text-sm mt-2">
-                        Hyundai terus memperluas jaringan dealer untuk meningkatkan pelayanan pelanggan.
+                        Hyundai Motor Company hari ini meluncurkan tema layar head unit dan cluster eksklusif.
                     </p>
                 </div>
             </a>
 
             <!-- CARD 5 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+            <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2721" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
                 <div class="overflow-hidden">
-                    <img src="/images/poster2.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                    <img src="/images/robot.avif" class="w-full h-48 object-cover group-hover:scale-105 transition">
                 </div>
                 <div class="p-5">
                     <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Promo Spesial Hyundai 2026
+                        Platform Robot Mobile ‘MobED’ Hyundai Raih Predikat ‘Winner’ di Red Dot Design Award 2026
                     </h3>
                     <p class="text-gray-500 text-sm mt-2">
-                        Nikmati berbagai promo menarik untuk pembelian kendaraan Hyundai tahun ini.
+                        Dikembangkan oleh Robotics LAB Hyundai Motor Group.
                     </p>
                 </div>
             </a>
 
             <!-- CARD 6 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
+            <a href="https://www.hyundai.com/id/id/hyundai-story/news/detail?newsid=2714" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
                 <div class="overflow-hidden">
-                    <img src="/images/poster3.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
+                    <img src="/images/system.avif" class="w-full h-48 object-cover group-hover:scale-105 transition">
                 </div>
                 <div class="p-5">
                     <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Hyundai Fokus Kendaraan Masa Depan
+                        Hyundai Mengundang Pelanggan all-new PALISADE Hybrid Untuk Optimalisasi Panel Instrumen
                     </h3>
                     <p class="text-gray-500 text-sm mt-2">
                         Hyundai berkomitmen menghadirkan kendaraan masa depan dengan teknologi canggih.
@@ -859,47 +699,87 @@
         <!-- CARD -->
         <div class="bg-white border border-gray-200 rounded-2xl shadow-lg p-8 md:p-10 reveal-item delay-1">
 
-            <form id="testDriveForm" class="grid md:grid-cols-2 gap-6">
+            <form 
+                action="{{ route('booking.store') }}"
+                method="POST"
+                id="testDriveForm" 
+                class="grid md:grid-cols-2 gap-6">
+
+                @csrf
 
                 <!-- NAMA -->
                 <div class="reveal-item delay-2">
                     <label class="text-sm text-gray-600">Nama Lengkap</label>
-                    <input type="text" id="nama" required
-                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
+                    <input 
+                    type="text" 
+                    id="nama"
+                    name="nama"
+                    required
+                    class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
                 </div>
 
                 <!-- HP -->
                 <div class="reveal-item delay-2">
-                    <label class="text-sm text-gray-600">Nomor WhatsApp</label>
-                    <input type="text" id="hp" required
-                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
+
+                <label class="text-sm text-gray-600">
+                Nomor WhatsApp
+                </label>
+
+                <input 
+                type="text"
+                id="hp"
+                name="hp"
+                required
+                class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
+
                 </div>
 
                 <!-- MOBIL -->
                 <div class="md:col-span-2 reveal-item delay-3">
                     <label class="text-sm text-gray-600">Pilih Kendaraan</label>
-                    <select id="mobil" required
-                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a] focus:border-[#0b1f3a] transition">
-                        <option value="">-- Pilih Mobil Hyundai --</option>
-                        <option>Hyundai Creta</option>
-                        <option>Hyundai Stargazer</option>
-                        <option>Hyundai Ioniq 5</option>
-                        <option>Hyundai Palisade</option>
+                    <select 
+                    id="mobil"
+                    name="kendaraan"
+                    required
+                    class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3">
+
+                    <option value="">
+                    -- Pilih Mobil Hyundai --
+                    </option>
+
+
+                    @foreach($mobil as $item)
+
+                    <option value="{{ $item->nama }}">
+                        {{ $item->nama }}
+                    </option>
+
+                    @endforeach
+
+
                     </select>
                 </div>
 
                 <!-- TANGGAL -->
                 <div class="reveal-item delay-4">
                     <label class="text-sm text-gray-600">Tanggal Test Drive</label>
-                    <input type="date" id="tanggal" required
-                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a]">
+                    <input 
+                    type="date"
+                    id="tanggal"
+                    name="tanggal"
+                    required
+                    class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a]">
                 </div>
 
                 <!-- WAKTU -->
                 <div class="reveal-item delay-4">
                     <label class="text-sm text-gray-600">Waktu</label>
-                    <input type="time" id="waktu" required
-                        class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a]">
+                    <input 
+                    type="time"
+                    id="waktu"
+                    name="waktu"
+                    required
+                    class="w-full mt-2 border border-gray-300 rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#0b1f3a]">
                 </div>
 
                 <!-- BUTTON -->
@@ -1190,6 +1070,18 @@ document.addEventListener("DOMContentLoaded", function () {
     transform:translateY(0);
 }
 
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:all .7s ease;
+}
+
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
 
 .map-glow{
     animation: floating 5s infinite ease-in-out;
@@ -1231,33 +1123,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener('scroll', revealOnScroll);
     revealOnScroll();
 
-    // ================= WHATSAPP =================
-    document.getElementById("testDriveForm").addEventListener("submit", function(e) {
-        e.preventDefault();
-
-        let nama = document.getElementById("nama").value;
-        let hp = document.getElementById("hp").value;
-        let mobil = document.getElementById("mobil").value;
-        let tanggal = document.getElementById("tanggal").value;
-        let waktu = document.getElementById("waktu").value;
-
-        let pesan =
-`🚗 *BOOKING TEST DRIVE HYUNDAI*
-
-👤 Nama: ${nama}
-📱 WhatsApp: ${hp}
-🚘 Mobil: ${mobil}
-📅 Tanggal: ${tanggal}
-⏰ Waktu: ${waktu}
-
-Mohon konfirmasi jadwal test drive saya. Terima kasih 🙏`;
-
-        let noWa = "6285121546050";
-
-        let url = `https://wa.me/${noWa}?text=${encodeURIComponent(pesan)}`;
-
-        window.open(url, "_blank");
-    });
+   
 
 });
 

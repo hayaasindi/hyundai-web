@@ -87,92 +87,544 @@
 <!-- SECTION SIMULASI -->
 <section class="py-24 bg-gray-100">
 
-    <div class="max-w-6xl mx-auto px-6">
+<div class="max-w-6xl mx-auto px-6">
 
-        <div class="text-center mb-14 reveal">
-            <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
-                Kalkulator Kredit
-            </h2>
-            <p class="text-gray-500 mt-2">
-                Simulasikan pembiayaan kendaraan Anda
-            </p>
-        </div>
 
-        <div class="grid md:grid-cols-2 gap-10">
+<!-- TITLE -->
 
-            <!-- FORM -->
-            <div class="bg-white border rounded-2xl shadow-md p-8 reveal">
+<div class="text-center mb-14 reveal">
 
-                <div class="space-y-6">
+<h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
+Kalkulator Kredit Hyundai
+</h2>
 
-                    <div>
-                        <label class="text-sm text-gray-600">Pilih Kendaraan</label>
-                        <select id="mobilHarga" class="w-full mt-2 border rounded-lg px-4 py-3">
-                            <option value="350000000">Hyundai Creta - 350jt</option>
-                            <option value="420000000">Hyundai Stargazer - 420jt</option>
-                            <option value="750000000">Hyundai Ioniq 5 - 750jt</option>
-                            <option value="900000000">Hyundai Palisade - 900jt</option>
-                        </select>
-                    </div>
+<p class="text-gray-500 mt-3">
+Hitung estimasi cicilan kendaraan impian Anda dengan mudah
+</p>
 
-                    <div>
-                        <label class="text-sm text-gray-600">DP (%)</label>
-                        <input type="range" id="dpRange" min="10" max="100" value="20" class="w-full">
-                        <p class="text-sm text-gray-500 mt-1">DP: <span id="dpValue">20%</span></p>
-                    </div>
+</div>
 
-                    <div>
-                        <label class="text-sm text-gray-600">Tenor</label>
-                        <select id="tenor" class="w-full mt-2 border rounded-lg px-4 py-3">
-                            <option value="1">1 Tahun</option>
-                            <option value="2">2 Tahun</option>
-                            <option value="3">3 Tahun</option>
-                            <option value="4">4 Tahun</option>
-                            <option value="5">5 Tahun</option>
-                        </select>
-                    </div>
 
-                </div>
-            </div>
 
-            <!-- HASIL -->
-            <div class="bg-white border rounded-2xl shadow-md p-8 reveal">
+<div class="grid lg:grid-cols-2 gap-10 items-start">
 
-                <div class="space-y-4 text-gray-600">
 
-                    <div class="flex justify-between">
-                        <span>Harga</span>
-                        <span id="hargaText"></span>
-                    </div>
 
-                    <div class="flex justify-between">
-                        <span>DP</span>
-                        <span id="dpText"></span>
-                    </div>
+<!-- =====================
+     KALKULATOR
+===================== -->
 
-                    <div class="flex justify-between">
-                        <span>Pinjaman</span>
-                        <span id="pinjamanText"></span>
-                    </div>
 
-                    <div class="border-t my-4"></div>
+<div class="bg-white rounded-3xl shadow-xl p-8 reveal">
 
-                    <div class="flex justify-between font-semibold text-[#0b1f3a]">
-                        <span>Cicilan</span>
-                        <span id="cicilanText"></span>
-                    </div>
 
-                </div>
+<div class="flex items-center gap-3 mb-8">
 
-                <a id="waBtn" target="_blank"
-                   class="mt-6 block text-center bg-[#0b1f3a] text-white py-3 rounded-lg">
-                   Konsultasi Sekarang
-                </a>
+<div class="w-12 h-12 rounded-xl bg-[#0b1f3a] flex items-center justify-center">
 
-            </div>
+<span class="text-white text-xl">
+</span>
 
-        </div>
-    </div>
+</div>
+
+
+<div>
+
+<h3 class="font-bold text-xl text-gray-900">
+Simulasi Pembiayaan
+</h3>
+
+<p class="text-sm text-gray-500">
+Sesuaikan DP dan tenor
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<div class="space-y-7">
+
+
+
+<!-- MOBIL -->
+
+<div>
+
+<label class="text-sm font-medium text-gray-700">
+Pilih Kendaraan
+</label>
+
+
+<select 
+id="mobilHarga"
+class="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3 focus:ring-2 focus:ring-[#0b1f3a] outline-none">
+
+@foreach($simulasi as $item)
+
+<option
+
+value="{{$item->id}}"
+
+data-nama="{{$item->nama_mobil}}"
+
+data-harga="{{$item->harga}}"
+
+data-dp="{{$item->dp}}"
+
+data-tenor="{{$item->tenor}}"
+
+data-cicilan="{{$item->cicilan}}"
+
+>
+
+{{$item->nama_mobil}}
+
+</option>
+
+
+@endforeach
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<!-- DP -->
+
+<div>
+
+
+<div class="flex justify-between">
+
+<label class="text-sm font-medium text-gray-700">
+Uang Muka
+</label>
+
+
+<span 
+id="dpValue"
+class="font-bold text-[#0b1f3a]">
+20%
+</span>
+
+
+</div>
+
+
+<input
+
+type="range"
+
+id="dpRange"
+
+min="10"
+
+max="100"
+
+step="10"
+
+value="20"
+
+class="w-full mt-4 accent-[#0b1f3a]"
+
+
+>
+
+
+<div class="flex justify-between text-xs text-gray-400 mt-2">
+
+<span>10%</span>
+<span>30%</span>
+<span>50%</span>
+<span>70%</span>
+<span>100%</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- TENOR -->
+
+
+<div>
+
+<label class="text-sm font-medium text-gray-700">
+Tenor Kredit
+</label>
+
+
+<select 
+
+id="tenor"
+
+class="w-full mt-2 border border-gray-200 rounded-xl px-4 py-3">
+
+
+<option value="1">
+1 Tahun
+</option>
+
+
+<option value="2">
+2 Tahun
+</option>
+
+
+<option value="3">
+3 Tahun
+</option>
+
+
+<option value="4">
+4 Tahun
+</option>
+
+
+<option value="5">
+5 Tahun
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+
+<!-- HASIL -->
+
+
+<div class="bg-gray-50 rounded-2xl p-6">
+
+
+<h4 class="font-bold text-gray-900 mb-5">
+Estimasi Kredit
+</h4>
+
+
+
+<div class="space-y-4">
+
+
+<div>
+
+<p class="text-sm text-gray-500">
+Harga Kendaraan
+</p>
+
+<h3 
+id="hargaText"
+class="font-bold text-lg">
+
+Rp 0
+
+</h3>
+
+
+</div>
+
+
+
+
+<div>
+
+<p class="text-sm text-gray-500">
+Uang Muka
+</p>
+
+<h3 
+id="dpText"
+class="font-bold text-lg">
+
+Rp 0
+
+</h3>
+
+
+</div>
+
+
+
+
+<div class="border-t pt-4">
+
+
+<p class="text-sm text-gray-500">
+Estimasi Cicilan / Bulan
+</p>
+
+
+<h3
+
+id="cicilanText"
+
+class="text-2xl font-bold text-[#0b1f3a]">
+
+Rp 0
+
+</h3>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- =====================
+     FORM KONSULTASI
+===================== -->
+
+
+<!-- FORM KONSULTASI -->
+
+<div class="bg-[#0b1f3a] rounded-3xl shadow-xl p-8 text-white reveal">
+
+
+<div class="flex items-center gap-3 mb-8">
+
+<div class="w-12 h-12 rounded-xl bg-white flex items-center justify-center">
+
+<i class="bi bi-chat-dots-fill text-[#0b1f3a] text-xl"></i>
+
+</div>
+
+
+<div>
+
+<h3 class="text-2xl font-bold">
+Konsultasi Kredit Hyundai
+</h3>
+
+
+<p class="text-white/70 text-sm mt-1">
+Dapatkan penawaran terbaik dari sales kami
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<form 
+action="{{route('kredit.store')}}"
+method="POST"
+class="space-y-5">
+
+
+@csrf
+
+
+
+<!-- NAMA -->
+
+<div>
+
+<label class="text-sm font-medium text-white">
+
+Nama Lengkap
+
+</label>
+
+
+<input
+
+type="text"
+
+name="nama"
+
+required
+
+placeholder="Masukkan nama lengkap"
+
+class="w-full mt-2 px-4 py-3 rounded-xl bg-white text-gray-900 border border-gray-300 focus:ring-2 focus:ring-white outline-none"
+
+>
+
+
+</div>
+
+
+
+
+
+<!-- WHATSAPP -->
+
+
+<div>
+
+<label class="text-sm font-medium text-white">
+
+Nomor WhatsApp
+
+</label>
+
+
+<input
+
+type="text"
+
+name="hp"
+
+required
+
+placeholder="Contoh: 08123456789"
+
+class="w-full mt-2 px-4 py-3 rounded-xl bg-white text-gray-900 border border-gray-300 focus:ring-2 focus:ring-white outline-none"
+
+>
+
+
+</div>
+
+
+
+
+
+
+<input
+type="hidden"
+id="mobilInput"
+name="mobil">
+
+
+<input
+type="hidden"
+id="dpInput"
+name="dp">
+
+
+<input
+type="hidden"
+id="tenorInput"
+name="tenor">
+
+
+<input
+type="hidden"
+id="cicilanInput"
+name="cicilan">
+
+
+
+
+
+
+<div class="bg-white/10 rounded-xl p-5">
+
+
+<div class="flex items-center gap-2 text-sm">
+
+<i class="bi bi-check-circle-fill"></i>
+
+<span>
+Gratis konsultasi kredit
+</span>
+
+</div>
+
+
+
+<div class="flex items-center gap-2 text-sm mt-3">
+
+<i class="bi bi-check-circle-fill"></i>
+
+<span>
+Dibantu proses sampai approval
+</span>
+
+</div>
+
+
+
+
+<div class="flex items-center gap-2 text-sm mt-3">
+
+<i class="bi bi-check-circle-fill"></i>
+
+<span>
+Respon cepat melalui WhatsApp
+</span>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<button
+
+type="submit"
+
+class="w-full bg-white text-[#0b1f3a] font-bold py-4 rounded-xl hover:bg-gray-100 transition duration-300"
+
+
+>
+
+<i class="bi bi-whatsapp"></i>
+
+Konsultasi Sekarang
+
+
+</button>
+
+
+
+</form>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
 </section>
 
 <!-- SECTION TESTIMONI -->
@@ -296,89 +748,325 @@
     </div>
 </section>
 
-@endsection
-
-
 <!-- ===================== -->
 <!-- SCRIPT GLOBAL -->
 <!-- ===================== -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
 
-    /* SLIDER */
-    const slides = document.querySelectorAll(".slide");
-    let index = 0;
+document.addEventListener("DOMContentLoaded", function(){
 
-    if (slides.length > 0) {
-        setInterval(() => {
-            slides[index].classList.replace("opacity-100","opacity-0");
-            index = (index + 1) % slides.length;
-            slides[index].classList.replace("opacity-0","opacity-100");
-        }, 4000);
+
+    /* =====================
+       ELEMENT SIMULASI
+    ====================== */
+
+    const mobilHarga = document.getElementById("mobilHarga");
+    const dpRange = document.getElementById("dpRange");
+    const tenor = document.getElementById("tenor");
+
+
+    const dpValue = document.getElementById("dpValue");
+
+    const hargaText = document.getElementById("hargaText");
+    const dpText = document.getElementById("dpText");
+    const cicilanText = document.getElementById("cicilanText");
+
+
+    const mobilInput = document.getElementById("mobilInput");
+    const dpInput = document.getElementById("dpInput");
+    const tenorInput = document.getElementById("tenorInput");
+    const cicilanInput = document.getElementById("cicilanInput");
+
+
+
+    // jika section kredit tidak ada
+    if(!mobilHarga){
+        return;
     }
 
-    /* FORMAT */
-    function formatRupiah(angka) {
-        return "Rp " + angka.toLocaleString("id-ID");
+
+
+    /* =====================
+       FORMAT RUPIAH
+    ====================== */
+
+    function formatRupiah(angka){
+
+        return "Rp " + 
+        Number(angka).toLocaleString("id-ID");
+
     }
 
-    /* SIMULASI */
-    function hitung() {
-        let harga = +mobilHarga.value;
-        let dpP = +dpRange.value;
-        let tenor = +document.getElementById("tenor").value;
 
-        let dp = harga * dpP/100;
+
+
+
+    /* =====================
+       HITUNG KREDIT
+    ====================== */
+
+    function hitungKredit(){
+
+
+        let option = mobilHarga.options[mobilHarga.selectedIndex];
+
+
+        if(!option){
+            return;
+        }
+
+
+
+        let harga = Number(
+            option.dataset.harga
+        );
+
+
+
+        let dpPersen = Number(
+            dpRange.value
+        );
+
+
+
+        let tenorTahun = Number(
+            tenor.value
+        );
+
+
+
+        // hitung DP
+
+        let dp = harga * dpPersen / 100;
+
+
+
+        // sisa pinjaman
+
         let pinjaman = harga - dp;
-        let cicilan = (pinjaman + (pinjaman*0.05*tenor))/(tenor*12);
 
-        hargaText.innerText = formatRupiah(harga);
-        dpText.innerText = formatRupiah(dp);
-        pinjamanText.innerText = formatRupiah(pinjaman);
-        cicilanText.innerText = formatRupiah(Math.round(cicilan));
-        dpValue.innerText = dpP + "%";
 
-        let msg = `Halo, saya tertarik simulasi kredit:
 
-Mobil: ${mobilHarga.selectedOptions[0].text}
-DP: ${dpP}%
-Tenor: ${tenor} Tahun
-Estimasi Cicilan: ${formatRupiah(Math.round(cicilan))}`;
+        // simulasi bunga 5%
 
-        waBtn.href = `https://wa.me/6285121546050?text=${encodeURIComponent(msg)}`;
+        let bunga = 
+        pinjaman * 0.05 * tenorTahun;
+
+
+
+        let total = 
+        pinjaman + bunga;
+
+
+
+        let cicilan =
+        total / (tenorTahun * 12);
+
+
+
+
+        /* =====================
+           UPDATE TAMPILAN
+        ====================== */
+
+
+        dpValue.innerHTML =
+        dpPersen + "%";
+
+
+
+        hargaText.innerHTML =
+        formatRupiah(harga);
+
+
+
+        dpText.innerHTML =
+        formatRupiah(dp);
+
+
+
+        cicilanText.innerHTML =
+        formatRupiah(
+            Math.round(cicilan)
+        );
+
+
+
+
+
+        /* =====================
+           UPDATE FORM KONSULTASI
+        ====================== */
+
+
+        mobilInput.value =
+        option.dataset.nama;
+
+
+
+        dpInput.value =
+        Math.round(dp);
+
+
+
+        tenorInput.value =
+        tenorTahun;
+
+
+
+        cicilanInput.value =
+        Math.round(cicilan);
+
+
+
     }
 
-    mobilHarga.onchange = hitung;
-    dpRange.oninput = hitung;
-    tenor.onchange = hitung;
-    hitung();
 
-    /* REVEAL */
-    const reveal = document.querySelectorAll(".reveal");
 
-    function show() {
-        reveal.forEach((el,i)=>{
-            if(el.getBoundingClientRect().top < window.innerHeight-100){
-                setTimeout(()=>el.classList.add("active"), i*100);
+
+
+
+
+    /* =====================
+       EVENT
+    ====================== */
+
+
+    mobilHarga.addEventListener(
+        "change",
+        hitungKredit
+    );
+
+
+
+    dpRange.addEventListener(
+        "input",
+        hitungKredit
+    );
+
+
+
+    tenor.addEventListener(
+        "change",
+        hitungKredit
+    );
+
+
+
+
+    // pertama kali load
+
+    hitungKredit();
+
+
+
+
+
+    });
+
+    // ==========================
+    // SCROLL REVEAL ANIMATION
+    // ==========================
+
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+
+    const observer = new IntersectionObserver(
+    (entries)=>{
+
+        entries.forEach(entry=>{
+
+            if(entry.isIntersecting){
+
+                entry.target.classList.add("active");
+
+                observer.unobserve(entry.target);
+
             }
+
         });
-    }
 
-    window.addEventListener("scroll", show);
-    show();
 
-});
+    },
+    {
+        threshold:0.15
+    });
+
+
+
+    revealElements.forEach((el,index)=>{
+
+
+        // delay otomatis untuk card
+        el.style.transitionDelay = `${index * 80}ms`;
+
+
+        observer.observe(el);
+
+
+    });
 </script>
 
 <!-- STYLE REVEAL -->
 <style>
-.reveal {
-    opacity: 0;
-    transform: translateY(50px);
-    transition: all .7s ease;
+
+/* =========================
+   PREMIUM SCROLL ANIMATION
+========================= */
+
+
+.reveal{
+
+    opacity:0;
+
+    transform:translateY(60px);
+
+    filter:blur(5px);
+
+    transition:
+    opacity .8s ease,
+    transform .8s cubic-bezier(.2,.8,.2,1),
+    filter .8s ease;
+
 }
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
+
+
+
+.reveal.active{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+    filter:blur(0);
+
 }
+
+
+
+
+/* CARD HOVER */
+
+.group:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.transition{
+
+    transition:
+    transform .4s ease,
+    box-shadow .4s ease;
+
+}
+
+
+
 </style>
+
+
+@endsection

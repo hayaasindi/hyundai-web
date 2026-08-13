@@ -43,8 +43,7 @@
                     </a>
                 </div>
 
-                <br>
-                <br>
+                <div class="mt-8 flex items-center space-x-2 text-sm text-gray-300">
                 
                 <div class="flex items-center space-x-2 mt-4 text-sm text-gray-300">
                     <img src="/images/maps.png" class="h-6 w-6 brightness-0 invert">

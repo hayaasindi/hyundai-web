@@ -1,98 +1,94 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KendaraanController;
+use App\Http\Controllers\Admin\KendaraanController as AdminKendaraanController;
+use App\Models\Kendaraan;
+use App\Http\Controllers\BookingTestDriveController;
+use App\Http\Controllers\Admin\BookingTestDriveController as AdminBookingTestDriveController;
+use App\Http\Controllers\Admin\SimulasiKreditController;
+use App\Http\Controllers\KreditController; 
+use App\Http\Controllers\Admin\KonsultasiKreditController;
+
 
 Route::get('/', function () {
-    return view('Dashboard');
+    $mobil = Kendaraan::latest()->get();
+    return view('Dashboard', compact('mobil'));
 });
 
-Route::get('/kendaraan', function () {
-    return view('kendaraan'); 
-});
+Route::get('/kendaraan', [KendaraanController::class, 'index'])
+    ->name('kendaraan');
+
+Route::get('/kendaraan/{slug}', [KendaraanController::class, 'show'])
+    ->name('kendaraan.detail');
 
 Route::get('/galeri', function () {
-    return view('galeri'); 
+    return view('galeri');
 });
 
-Route::get('/kredit', function () {
-    return view('kredit'); 
-});
+Route::get('/kredit',[KreditController::class,'index'])
+->name('kredit');
+
+Route::post(
+'/kredit-konsultasi',
+[KreditController::class,'store']
+)
+->name('kredit.store');
 
 Route::get('/kontak', function () {
-    return view('kontak'); 
+    return view('kontak');
 });
 
+Route::post(
+    '/booking-test-drive',
+    [BookingTestDriveController::class,'store']
+)->name('booking.store');
 
-Route::get('/kendaraan/{slug}', function ($slug) {
+Route::prefix('admin')
+    ->name('admin.')
+    ->group(function(){
 
+    Route::get('/', function(){
 
-    $mobil = [
+        $totalKendaraan = Kendaraan::count();
+        $totalTestDrive = \App\Models\BookingTestDrive::count();
+        $totalKonsultasiKredit = \App\Models\KonsultasiKredit::count();
 
-        'hyundai-creta'=>[
-            'nama'=>'Hyundai Creta',
-            'kategori'=>'SUV',
-            'harga'=>'Rp 350 Juta',
-            'gambar'=>'creta.png',
-            'folder360'=>'creta',
-            'deskripsi'=>'SUV modern dengan desain sporty dan teknologi Hyundai SmartSense.',
-        ],
+        $kendaraanTerbaru = Kendaraan::latest()
+            ->limit(5)
+            ->get();
 
-
-        'hyundai-palisade'=>[
-            'nama'=>'Hyundai Palisade',
-            'kategori'=>'SUV',
-            'harga'=>'Rp 900 Juta',
-            'gambar'=>'palisade.png',
-            'folder360'=>'palisade',
-            'deskripsi'=>'SUV premium dengan kenyamanan kelas atas.',
-        ],
-
-
-        'hyundai-stargazer'=>[
-            'nama'=>'Hyundai Stargazer',
-            'kategori'=>'MPV',
-            'harga'=>'Rp 270 Juta',
-            'gambar'=>'stargazer.png',
-            'folder360'=>'stargazer',
-            'deskripsi'=>'MPV keluarga dengan kabin luas.',
-        ],
+        return view(
+            'admin.dashboard',
+            compact(
+                'totalKendaraan',
+                'totalTestDrive',
+                'totalKonsultasiKredit',
+                'kendaraanTerbaru'
+            )
+        );
 
 
-        'hyundai-ioniq-5'=>[
-            'nama'=>'Hyundai Ioniq 5',
-            'kategori'=>'EV',
-            'harga'=>'Rp 700 Juta',
-            'gambar'=>'ioniq5.png',
-            'folder360'=>'ioniq5',
-            'deskripsi'=>'Mobil listrik futuristik Hyundai.',
-        ],
+        })->name('dashboard');
 
+        Route::resource(
+            'kendaraan',
+            AdminKendaraanController::class
+        );
 
-    ];
+        Route::resource(
+            'booking',
+            AdminBookingTestDriveController::class
+        );
 
+        Route::resource(
+            'simulasi',
+            SimulasiKreditController::class
+        );
 
+        Route::resource(
+            'konsultasi',
+            KonsultasiKreditController::class
+        );
 
-    if(!isset($mobil[$slug])){
-
-        abort(404);
-
-    }
-
-
-
-    return view('detail-kendaraan', [
-
-        'mobil'=>$mobil[$slug]
-
-    ]);
-
-
-});
-
-Route::prefix('admin')->group(function () {
-
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    })->name('admin.dashboard');
-
-});
+    });

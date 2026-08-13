@@ -8,212 +8,108 @@
 
     <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         <div class="reveal">
-            <img
-                src="/images/{{$mobil['gambar']}}"
-                class="w-full object-contain drop-shadow-2xl floating-car"
-            >
+            @if(Str::contains($mobil->gambar, 'kendaraan'))
+                <img src="{{ asset('storage/'.$mobil->gambar) }}" class="w-full object-contain drop-shadow-2xl">
+            @else
+                <img src="{{ asset('images/'.$mobil->gambar) }}" class="w-full object-contain drop-shadow-2xl">
+            @endif
         </div>
 
         <div class="text-white reveal">
             <span class="bg-white/20 px-5 py-2 rounded-full text-sm">
-                {{$mobil['kategori']}}
+                {{ $mobil->kategori }}
             </span>
 
             <h1 class="text-5xl font-bold mt-6">
-                {{$mobil['nama']}}
+                {{ $mobil->nama }}
             </h1>
 
             <p class="text-gray-300 text-lg mt-6 leading-relaxed">
-                {{$mobil['deskripsi']}}
+                {{ $mobil->deskripsi }}
             </p>
 
             <div class="mt-8">
-                <p class="text-gray-400">
-                    Mulai dari
-                </p>
-
+                <p class="text-gray-400">Mulai dari</p>
                 <h2 class="text-3xl font-bold">
-                    {{$mobil['harga']}}
+                    {{ $mobil->harga }}
                 </h2>
             </div>
 
-            <a
-                href="[https://wa.me/6285121546050](https://wa.me/6285121546050)"
-                class="inline-block mt-8 bg-white text-[#0b1f3a] px-8 py-3 rounded-full font-semibold"
-            >
+            <a href="https://wa.me/6285121546050"
+               class="inline-block mt-8 bg-white text-[#0b1f3a] px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">
                 Booking Test Drive
             </a>
         </div>
     </div>
 </section>
 
-<!-- 360 VIEW -->
+<!-- GALLERY -->
 <section class="py-24 bg-white">
     <div class="max-w-6xl mx-auto px-6">
         <div class="text-center reveal">
-            <h2 class="text-4xl font-semibold">
-                360° Vehicle Experience
+            <p class="text-[#0b1f3a] font-semibold tracking-widest uppercase text-sm">
+                Vehicle Gallery
+            </p>
+
+            <h2 class="text-4xl font-semibold mt-3">
+                Tampilan Kendaraan
             </h2>
 
             <p class="text-gray-500 mt-3">
-                Putar kendaraan dan pilih warna favorit Anda
+                Lihat detail kendaraan dari berbagai sudut.
             </p>
         </div>
 
         <div class="mt-12 relative bg-gray-100 rounded-[40px] shadow-xl h-[550px] flex items-center justify-center overflow-hidden reveal">
-            <img
-                id="carViewer"
-                src="/images/360/{{$mobil['folder360']}}/black/1.webp"
-                class="max-h-[430px] transition duration-500"
-            >
+            @if($mobil->images->count() > 0)
+                <img id="carGallery"
+                     src="{{ asset('storage/'.$mobil->images->first()->gambar) }}"
+                     class="w-full h-full max-h-[430px] object-contain px-20 transition duration-500">
 
-            <button
-                id="prev"
-                class="absolute left-8 w-14 h-14 bg-white rounded-full shadow text-xl"
-            >
-                ←
-            </button>
+                @if($mobil->images->count() > 1)
+                    <button type="button"
+                            onclick="prevImage()"
+                            class="gallery-arrow absolute left-8 w-14 h-14 bg-white rounded-full shadow-lg text-xl">
+                        ←
+                    </button>
 
-            <button
-                id="next"
-                class="absolute right-8 w-14 h-14 bg-white rounded-full shadow text-xl"
-            >
-                →
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- WARNA -->
-<section class="py-16 bg-gray-100">
-    <div class="max-w-5xl mx-auto px-6 text-center">
-        <h2 class="text-3xl font-semibold">
-            Pilihan Warna
-        </h2>
-
-        <div class="flex justify-center gap-10 mt-10">
-            <button
-                class="color-btn"
-                data-color="black"
-            >
-                <div class="w-16 h-16 rounded-full bg-black shadow-lg border-4 border-white"></div>
-
-                <p class="mt-3">
-                    Black
-                </p>
-            </button>
-
-            <button
-                class="color-btn"
-                data-color="white"
-            >
-                <div class="w-16 h-16 rounded-full bg-white shadow-lg border"></div>
-
-                <p class="mt-3">
-                    White
-                </p>
-            </button>
-
-            <button
-                class="color-btn"
-                data-color="red"
-            >
-                <div class="w-16 h-16 rounded-full bg-red-600 shadow-lg border-4 border-white"></div>
-
-                <p class="mt-3">
-                    Red
-                </p>
-            </button>
-        </div>
-    </div>
-</section>
-
-<!-- FEATURE -->
-<section class="py-28 bg-white overflow-hidden">
-    <div class="max-w-7xl mx-auto px-6">
-
-        <div class="text-center reveal">
-            <p class="text-[#0b1f3a] font-semibold tracking-widest uppercase text-sm">
-                Performance Highlight
-            </p>
-
-            <h2 class="text-4xl md:text-5xl font-bold mt-4 text-[#0b1f3a]">
-                Designed For Every Journey
-            </h2>
-
-            <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
-                Performa, teknologi, dan kenyamanan yang dirancang untuk memberikan pengalaman berkendara terbaik.
-            </p>
+                    <button type="button"
+                            onclick="nextImage()"
+                            class="gallery-arrow absolute right-8 w-14 h-14 bg-white rounded-full shadow-lg text-xl">
+                        →
+                    </button>
+                @endif
+            @else
+                @if(Str::contains($mobil->gambar, 'kendaraan'))
+                    <img src="{{ asset('storage/'.$mobil->gambar) }}" class="w-full h-full max-h-[430px] object-contain px-20">
+                @else
+                    <img src="{{ asset('images/'.$mobil->gambar) }}" class="w-full h-full max-h-[430px] object-contain px-20">
+                @endif
+            @endif
         </div>
 
-        <div class="grid md:grid-cols-4 gap-6 mt-16">
-
-            @foreach([
-                [
-                    'image'=>'engineering.png',
-                    'title'=>'Mesin',
-                    'value'=>'1.5L',
-                    'desc'=>'Smartstream Engine'
-                ],
-                [
-                    'image'=>'server.png',
-                    'title'=>'Performa',
-                    'value'=>'115 PS',
-                    'desc'=>'Maximum Power'
-                ],
-                [
-                    'image'=>'security.png',
-                    'title'=>'Safety',
-                    'value'=>'SmartSense',
-                    'desc'=>'Advanced Safety System'
-                ],
-                [
-                    'image'=>'seat.png',
-                    'title'=>'Kapasitas',
-                    'value'=>'5 Seat',
-                    'desc'=>'Comfort Passenger'
-                ]
-            ] as $index=>$item)
-
-            <div class="feature-card reveal" style="transition-delay: {{$index * 120}}ms">
-
-                <div class="feature-image">
-                    <img 
-                        src="/images/{{$item['image']}}" 
-                        alt="{{$item['title']}}"
-                    >
-                </div>
-
-                <div class="mt-8">
-                    <p class="feature-title">
-                        {{$item['title']}}
-                    </p>
-
-                    <h3 class="feature-value">
-                        {{$item['value']}}
-                    </h3>
-
-                    <span class="feature-desc">
-                        {{$item['desc']}}
-                    </span>
-                </div>
-
+        @if($mobil->images->count() > 1)
+            <div class="flex justify-center gap-3 mt-6 flex-wrap">
+                @foreach($mobil->images as $index => $image)
+                    <button type="button"
+                            onclick="showImage({{ $index }})"
+                            class="gallery-thumb {{ $index === 0 ? 'active' : '' }}"
+                            data-index="{{ $index }}">
+                        <img src="{{ asset('storage/'.$image->gambar) }}"
+                             class="w-24 h-16 object-cover rounded-lg">
+                    </button>
+                @endforeach
             </div>
-
-            @endforeach
-
-        </div>
-
+        @endif
     </div>
 </section>
 
 <!-- SPESIFIKASI -->
-<section class="py-28 bg-[#f5f7fb] overflow-hidden">
+<section class="py-24 bg-[#f5f7fb]">
     <div class="max-w-6xl mx-auto px-6">
-
         <div class="text-center reveal">
             <p class="text-[#0b1f3a] font-semibold tracking-widest uppercase text-sm">
-                Vehicle Information
+                Vehicle Specification
             </p>
 
             <h2 class="text-4xl md:text-5xl font-bold mt-4 text-[#0b1f3a]">
@@ -221,85 +117,46 @@
             </h2>
 
             <p class="text-gray-500 mt-4 max-w-2xl mx-auto">
-                Detail performa, teknologi, dan fitur kendaraan untuk memberikan pengalaman berkendara terbaik.
+                Detail performa, mesin, transmisi, dimensi, dan komponen kendaraan.
             </p>
         </div>
 
+        @if($mobil->specs->count() > 0)
+            @php
+                $specGroups = $mobil->specs->groupBy('kategori');
+            @endphp
 
-        <div class="grid md:grid-cols-2 gap-6 mt-16">
+            <div class="mt-14 space-y-6">
+                @foreach($specGroups as $kategori => $specs)
+                    <div class="spec-section reveal">
+                        <div class="spec-header">
+                            <span class="spec-header-line"></span>
+                            <h3>{{ $kategori }}</h3>
+                        </div>
 
-            @foreach([
-                [
-                    'title'=>'Mesin',
-                    'value'=>'1.5L Smartstream',
-                    'desc'=>'Engine Technology'
-                ],
-                [
-                    'title'=>'Tenaga Maksimum',
-                    'value'=>'115 PS',
-                    'desc'=>'Maximum Power Output'
-                ],
-                [
-                    'title'=>'Transmisi',
-                    'value'=>'Automatic IVT',
-                    'desc'=>'Smooth Gear Transmission'
-                ],
-                [
-                    'title'=>'Drive Mode',
-                    'value'=>'Eco • Normal • Sport',
-                    'desc'=>'Adjustable Driving Mode'
-                ],
-                [
-                    'title'=>'Kapasitas Penumpang',
-                    'value'=>'5 Passenger',
-                    'desc'=>'Comfortable Cabin Space'
-                ],
-                [
-                    'title'=>'Sistem Keamanan',
-                    'value'=>'Hyundai SmartSense',
-                    'desc'=>'Advanced Safety Technology'
-                ],
-                [
-                    'title'=>'Konsumsi BBM',
-                    'value'=>'Efficient Fuel System',
-                    'desc'=>'Optimized Performance'
-                ],
-                [
-                    'title'=>'Teknologi',
-                    'value'=>'Smart Connectivity',
-                    'desc'=>'Modern Digital Experience'
-                ]
-            ] as $index=>$item)
-
-            <div 
-                class="spec-premium reveal"
-                style="transition-delay: {{$index * 100}}ms"
-            >
-
-                <div class="spec-number">
-                    {{str_pad($index + 1,2,'0',STR_PAD_LEFT)}}
-                </div>
-
-                <div>
-                    <p>
-                        {{$item['title']}}
-                    </p>
-
-                    <h3>
-                        {{$item['value']}}
-                    </h3>
-
-                    <span>
-                        {{$item['desc']}}
-                    </span>
-                </div>
-
+                        <div class="spec-content">
+                            @foreach($specs as $spec)
+                                @if($kategori === 'Performa' && $spec->nama === 'Package')
+                                    <div class="spec-package">
+                                        <span>Package</span>
+                                        <strong>{{ $spec->nilai }}</strong>
+                                    </div>
+                                @else
+                                    <div class="spec-row">
+                                        <span class="spec-name">{{ $spec->nama }}</span>
+                                        <span class="spec-value">{{ $spec->nilai }}</span>
+                                    </div>
+                                @endif
+                            @endforeach
+                        </div>
+                    </div>
+                @endforeach
             </div>
-
-            @endforeach
-
-        </div>
-
+        @else
+            <div class="mt-12 bg-white border border-gray-200 rounded-2xl p-8 text-center text-gray-500 reveal">
+                Spesifikasi kendaraan belum tersedia.
+            </div>
+        @endif
     </div>
 </section>
 
@@ -308,126 +165,6 @@
 @push('scripts')
 
 <style>
-/* FEATURE CARD */
-
-.feature-card {
-    background:#ffffff;
-    border:1px solid #e8ebf0;
-    border-radius:24px;
-    padding:30px;
-    transition:all .4s ease;
-    position:relative;
-    overflow:hidden;
-}
-
-.feature-card::before {
-    content:"";
-    position:absolute;
-    width:120px;
-    height:120px;
-    background:#0b1f3a;
-    opacity:.03;
-    border-radius:50%;
-    top:-50px;
-    right:-50px;
-}
-
-.feature-card:hover {
-    transform:translateY(-8px);
-    border-color:#0b1f3a;
-    box-shadow:0 20px 45px rgba(11,31,58,.08);
-}
-
-.feature-image {
-    width:90px;
-    height:90px;
-    border-radius:20px;
-    overflow:hidden;
-    background:#f4f6f9;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
-
-.feature-image img {
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-.feature-title {
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:.12em;
-    color:#9ca3af;
-    font-weight:600;
-}
-
-.feature-value {
-    margin-top:12px;
-    font-size:34px;
-    line-height:1;
-    font-weight:700;
-    color:#0b1f3a;
-}
-
-.feature-desc {
-    display:block;
-    margin-top:12px;
-    font-size:14px;
-    color:#6b7280;
-}
-
-
-/* REVEAL ANIMATION */
-
-.reveal {
-    opacity:0;
-    transform:translateY(30px);
-    transition:
-        opacity .7s ease,
-        transform .7s ease;
-}
-
-.reveal.active {
-    opacity:1;
-    transform:none;
-}
-
-/* SPECIFICATION CARD */
-
-.spec-card {
-    background: white;
-    border-radius: 18px;
-    padding: 32px;
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    border: 1px solid #e8ebf0;
-    transition: .4s;
-}
-
-.spec-card:hover {
-    border-color: #0b1f3a;
-    box-shadow: 0 15px 35px rgba(0,0,0,.07);
-}
-
-.spec-line {
-    width: 3px;
-    height: 65px;
-    background: #0b1f3a;
-    border-radius: 10px;
-}
-
-.spec-card h3 {
-    margin-top: 8px;
-    font-size: 24px;
-    font-weight: 700;
-    color: #0b1f3a;
-}
-
-/* SCROLL ANIMATION */
-
 .reveal {
     opacity: 0;
     transform: translateY(25px);
@@ -436,85 +173,123 @@
 
 .reveal.active {
     opacity: 1;
-    transform: none;
+    transform: translateY(0);
 }
 
-/* DELAY ANIMATION */
-
-.feature-card:nth-child(1),
-.spec-card:nth-child(1) {
-    transition-delay: .1s;
+.gallery-arrow {
+    color: #0b1f3a;
+    transition: .25s ease;
+    z-index: 10;
 }
 
-.feature-card:nth-child(2),
-.spec-card:nth-child(2) {
-    transition-delay: .2s;
+.gallery-arrow:hover {
+    transform: scale(1.08);
+    background: #0b1f3a;
+    color: #fff;
 }
 
-.feature-card:nth-child(3),
-.spec-card:nth-child(3) {
-    transition-delay: .3s;
+.gallery-thumb {
+    padding: 3px;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    opacity: .65;
+    transition: .25s ease;
 }
 
-.feature-card:nth-child(4),
-.spec-card:nth-child(4) {
-    transition-delay: .4s;
+.gallery-thumb:hover,
+.gallery-thumb.active {
+    opacity: 1;
+    border-color: #0b1f3a;
 }
 
-/* PREMIUM SPECIFICATION */
-
-.spec-premium {
-    background:white;
-    border:1px solid #e5e7eb;
-    border-radius:22px;
-    padding:28px;
-    display:flex;
-    align-items:flex-start;
-    gap:25px;
-    transition:.35s ease;
+.spec-section {
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(11,31,58,.04);
 }
 
-.spec-premium:hover {
-    transform:translateY(-5px);
-    border-color:#0b1f3a;
-    box-shadow:0 20px 40px rgba(11,31,58,.08);
+.spec-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 22px 28px;
+    background: #0b1f3a;
+    color: #fff;
 }
 
-.spec-number {
-    width:42px;
-    height:42px;
-    border-radius:12px;
-    background:#0b1f3a;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:13px;
-    font-weight:600;
+.spec-header-line {
+    width: 4px;
+    height: 24px;
+    background: #fff;
+    border-radius: 999px;
 }
 
-.spec-premium p {
-    font-size:13px;
-    text-transform:uppercase;
-    letter-spacing:.08em;
-    color:#9ca3af;
-    font-weight:600;
+.spec-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
 }
 
-.spec-premium h3 {
-    margin-top:8px;
-    font-size:24px;
-    font-weight:700;
-    color:#0b1f3a;
+.spec-content {
+    padding: 10px 28px 18px;
 }
 
-.spec-premium span {
-    display:block;
-    margin-top:8px;
-    font-size:14px;
-    color:#6b7280;
+.spec-row {
+    display: grid;
+    grid-template-columns: minmax(220px, 1fr) 1.3fr;
+    gap: 30px;
+    padding: 18px 0;
+    border-bottom: 1px solid #edf0f4;
 }
 
+.spec-row:last-child {
+    border-bottom: none;
+}
+
+.spec-name {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.spec-value {
+    color: #0b1f3a;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.spec-package {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 22px 0 14px;
+}
+
+.spec-package span {
+    color: #6b7280;
+    font-size: 14px;
+}
+
+.spec-package strong {
+    color: #0b1f3a;
+    font-size: 21px;
+}
+
+@media (max-width: 768px) {
+    .spec-row {
+        grid-template-columns: 1fr;
+        gap: 6px;
+    }
+
+    .spec-package {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
 </style>
 
 <script>
@@ -523,18 +298,70 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function reveal() {
         revealItems.forEach(item => {
-            const top = item.getBoundingClientRect().top;
-
-            if (top < window.innerHeight - 80) {
+            if (item.getBoundingClientRect().top < window.innerHeight - 80) {
                 item.classList.add('active');
             }
         });
     }
 
     window.addEventListener('scroll', reveal);
-
     reveal();
 });
+
+const galleryImages = [
+    @foreach($mobil->images as $image)
+        "{{ asset('storage/'.$image->gambar) }}",
+    @endforeach
+];
+
+let galleryIndex = 0;
+
+function updateGallery() {
+    const gallery = document.getElementById('carGallery');
+
+    if (!gallery || galleryImages.length === 0) {
+        return;
+    }
+
+    gallery.src = galleryImages[galleryIndex];
+
+    document.querySelectorAll('.gallery-thumb').forEach(thumb => {
+        thumb.classList.remove('active');
+    });
+
+    const activeThumb = document.querySelector(`.gallery-thumb[data-index="${galleryIndex}"]`);
+
+    if (activeThumb) {
+        activeThumb.classList.add('active');
+    }
+}
+
+function nextImage() {
+    if (galleryImages.length === 0) {
+        return;
+    }
+
+    galleryIndex = (galleryIndex + 1) % galleryImages.length;
+    updateGallery();
+}
+
+function prevImage() {
+    if (galleryImages.length === 0) {
+        return;
+    }
+
+    galleryIndex = (galleryIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateGallery();
+}
+
+function showImage(index) {
+    if (!galleryImages[index]) {
+        return;
+    }
+
+    galleryIndex = index;
+    updateGallery();
+}
 </script>
 
 @endpush
