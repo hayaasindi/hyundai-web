@@ -10,17 +10,17 @@
 
         <!-- SLIDE 1 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-            <img src="/images/slider1.jpeg" class="w-full h-full object-cover">
+            <img src="/images/palisade.jpg" class="w-full h-full object-cover">
         </div>
 
         <!-- SLIDE 2 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-            <img src="/images/slider2.jpeg" class="w-full h-full object-cover">
+            <img src="/images/santa.avif" class="w-full h-full object-cover">
         </div>
 
         <!-- SLIDE 3 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-[1500]">
-            <img src="/images/slider3.jpeg" class="w-full h-full object-cover">
+            <img src="/images/ionic3.jpg" class="w-full h-full object-cover">
         </div>
 
     </div>
@@ -32,11 +32,8 @@
                 Temukan Mobil Impian Anda
             </h1>
             <p class="text-lg md:text-xl mb-6">
-                Hyundai Bekasi - Tambun Selatan Official
+                Hyundai Kalimalang Official
             </p>
-            <a href="#" class="bg-white text-black px-6 py-3 font-semibold hover:bg-gray-200 transition">
-                Lihat Kendaraan
-            </a>
         </div>
     </div>
 
@@ -214,68 +211,214 @@
 </section>
 
 <!-- SECTION SALES -->
-<section class="py-28 bg-gray-200">
+<section class="py-28 bg-gray-100 overflow-hidden">
 
     <div class="max-w-7xl mx-auto px-6">
 
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
 
-            <!-- LEFT: FOTO + NAMA -->
+
+            <!-- LEFT : SALES PROFILE -->
             <div id="salesImage"
-                class="text-center opacity-0 translate-y-10 transition-all duration-1000">
+                class="relative text-center opacity-0 translate-y-10 transition-all duration-1000">
 
-                <!-- FOTO -->
-                <img src="/images/profile.jpeg"
-                    class="w-full max-w-sm mx-auto rounded-2xl object-cover">
 
-                <!-- NAMA -->
-                <h3 class="mt-6 text-xl font-semibold text-gray-900">
-                    Muhammad Daffa Syaddad
-                </h3>
+                <!-- Decorative Frame -->
+                <div class="absolute inset-0 flex justify-center items-center">
 
-                <!-- DESKAT -->
-                <p class="text-gray-500 mt-2 max-w-sm mx-auto">
-                    Saya siap membantu Anda menemukan jenis kendaraan yang cocok sesuai dengan budget dan keinginan Anda.
-                </p>
+                    <div class="
+                        w-72
+                        h-96
+                        border
+                        border-[#0b1f3a]/20
+                        rounded-3xl
+                        translate-x-5
+                        translate-y-5
+                    "></div>
+
+                </div>
+
+
+
+                <!-- PHOTO -->
+                <div class="relative z-10">
+
+                    <img src="/images/fotodaffa.png"
+                        class="
+                        w-72
+                        h-96
+                        mx-auto
+                        object-cover
+                        rounded-3xl
+                        shadow-xl
+                        ">
+
+                </div>
+
+
+
+                <!-- NAME CARD -->
+                <div class="
+                    relative
+                    z-20
+                    -mt-10
+                    mx-auto
+                    bg-white
+                    w-[85%]
+                    rounded-2xl
+                    shadow-lg
+                    py-5
+                    px-6
+                ">
+
+
+                    <div class="
+                        inline-flex
+                        items-center
+                        px-4
+                        py-1
+                        rounded-full
+                        bg-[#0b1f3a]/10
+                        text-[#0b1f3a]
+                        text-xs
+                        font-semibold
+                        mb-3
+                    ">
+
+                        Hyundai Sales Consultant
+
+                    </div>
+
+
+
+                    <h3 class="
+                        text-xl
+                        font-semibold
+                        text-gray-900
+                    ">
+                        Muhammad Daffa Syaddad
+                    </h3>
+
+
+
+                    <p class="
+                        text-sm
+                        text-gray-500
+                        mt-2
+                        leading-relaxed
+                    ">
+                        Siap membantu Anda menemukan kendaraan Hyundai terbaik sesuai kebutuhan dan budget.
+                    </p>
+
+
+                </div>
+
 
             </div>
 
-            <!-- RIGHT: DESKRIPSI -->
+
+
+
+            <!-- RIGHT : DESCRIPTION -->
             <div id="salesText"
                 class="opacity-0 translate-y-10 transition-all duration-1000">
 
-                <!-- TITLE -->
-                <h2 class="text-3xl md:text-4xl font-semibold text-[#0b1f3a] mb-6">
-                    Hyundai Bogor
+
+                <span class="
+                    text-sm
+                    font-semibold
+                    tracking-wider
+                    text-gray-500
+                    uppercase
+                ">
+                    Official Hyundai Kalimalang
+                </span>
+
+
+
+                <h2 class="
+                    mt-3
+                    text-3xl
+                    md:text-4xl
+                    font-semibold
+                    text-[#0b1f3a]
+                    leading-tight
+                ">
+
+                    Partner Terpercaya
+                    Untuk Perjalanan Hyundai Anda
+
                 </h2>
 
-                <!-- DESC -->
-                <div class="space-y-4 text-gray-600 leading-relaxed">
+
+
+
+                <div class="
+                    mt-7
+                    space-y-5
+                    text-gray-600
+                    leading-relaxed
+                ">
+
 
                     <p>
-                        Dealer Hyundai Sholeh Iskandar Bogor, kami memberikan segala kemudahan dan kepuasan pelanggan dalam memilih varian mobil terbaik.
+                        Saya hadir sebagai Sales Consultant Hyundai Kalimalang Official untuk memberikan pengalaman pembelian kendaraan yang lebih mudah, transparan, dan terpercaya.
                     </p>
 
-                    <p>
-                        Menjadi prioritas utama kami untuk menciptakan kenyamanan pelanggan dalam setiap proses pembelian.
-                    </p>
 
                     <p>
-                        Layanan konsultasi kami kini sepenuhnya online. Melalui website ini, Anda dapat terhubung langsung dengan sales consultant kami dengan cara yang sederhana, aman, dan nyaman.
+                        Setiap pelanggan akan mendapatkan pendampingan mulai dari pemilihan kendaraan, rekomendasi varian terbaik, hingga proses kepemilikan mobil Hyundai.
                     </p>
+
+
+                    <p>
+                        Dengan komitmen terhadap pelayanan dan kepuasan pelanggan, saya siap membantu Anda menemukan kendaraan yang sesuai dengan kebutuhan Anda.
+                    </p>
+
 
                 </div>
+
+
 
                 <!-- CTA -->
-                <div class="mt-8">
+
+                <div class="mt-9 flex items-center gap-5">
+
+
                     <a href="https://wa.me/6285121546050?text=Halo%20kak%2C%20saya%20tertarik%20dengan%20mobil%20Hyundai.%20Boleh%20minta%20info%20lebih%20lanjut%20mengenai%20unit%2C%20promo%2C%20dan%20test%20drive%3F%20Terima%20kasih%20🙏"
                     target="_blank"
-                    class="inline-block bg-[#0b1f3a] text-white px-7 py-3 rounded-full font-medium hover:bg-[#16345f] transition">
+                    class="
+                    bg-[#0b1f3a]
+                    text-white
+                    px-8
+                    py-3
+                    rounded-full
+                    font-medium
+                    shadow-md
+                    hover:bg-[#16345f]
+                    hover:-translate-y-1
+                    transition
+                    ">
+
                         Hubungi Sekarang
+
                     </a>
+
+
+
+                    <span class="
+                        text-sm
+                        text-gray-400
+                    ">
+                        Fast Response WhatsApp
+                    </span>
+
+
                 </div>
 
+
             </div>
+
 
         </div>
 

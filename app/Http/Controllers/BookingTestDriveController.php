@@ -34,7 +34,7 @@ class BookingTestDriveController extends Controller
             ."Waktu: {$booking->waktu}\n\n"
             ."Mohon konfirmasi ketersediaan jadwal test drive saya. Terima kasih.";
 
-        $nomorSales = '6285771922632';
+        $nomorSales = '6285121546050';
 
         return redirect()->away(
             'https://wa.me/'.$nomorSales.'?text='.urlencode($pesan)

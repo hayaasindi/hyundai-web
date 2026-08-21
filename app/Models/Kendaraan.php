@@ -27,5 +27,10 @@ protected $fillable = [
     {
         return $this->hasMany(KendaraanSpec::class);
     }
+
+    public function variants()
+    {
+        return $this->hasMany(KendaraanVariant::class);
+    }
 }
 

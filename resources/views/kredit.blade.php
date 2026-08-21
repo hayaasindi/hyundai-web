@@ -2,32 +2,52 @@
 
 @section('content')
 
-<!-- HERO SECTION (SLIDER) -->
+<!-- HERO SLIDER -->
 <section class="relative w-full h-[90vh] overflow-hidden group">
 
+    <!-- SLIDES -->
     <div id="slider" class="w-full h-full relative">
+
+        <!-- SLIDE 1 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-            <img src="/images/slider1.jpeg" class="w-full h-full object-cover">
+            <img src="/images/palisade.jpg" class="w-full h-full object-cover">
         </div>
-        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-            <img src="/images/slider2.jpeg" class="w-full h-full object-cover">
+
+        <!-- SLIDE 2 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="/images/santa.avif" class="w-full h-full object-cover">
         </div>
-        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-            <img src="/images/slider3.jpeg" class="w-full h-full object-cover">
+
+        <!-- SLIDE 3 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-[1500]">
+            <img src="/images/ionic3.jpg" class="w-full h-full object-cover">
         </div>
+
     </div>
 
-    <!-- Overlay -->
+    <!-- OVERLAY -->
     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-        <div class="text-center text-white px-6 reveal">
+        <div class="text-center text-white px-6">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                Simulasi Kredit Hyundai
+                Temukan Mobil Impian Anda
             </h1>
-            <p class="text-lg md:text-xl">
-                Hitung estimasi cicilan kendaraan impian Anda
+            <p class="text-lg md:text-xl mb-6">
+                Hyundai Kalimalang Official
             </p>
         </div>
     </div>
+
+    <!-- BUTTON LEFT -->
+    <button onclick="prevSlide()" 
+        class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
+        &#10094;
+    </button>
+
+    <!-- BUTTON RIGHT -->
+    <button onclick="nextSlide()" 
+        class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
+        &#10095;
+    </button>
 
 </section>
 
@@ -653,15 +673,15 @@ Konsultasi Sekarang
 
                 <div class="relative z-10">
 
-                    <img src="/images/Hayaa.jpg" 
+                    <img src="/images/foto1.jpg" 
                         class="w-16 h-16 rounded-full mx-auto object-cover mb-4 border-2 border-white shadow">
 
                     <p class="text-gray-600 text-sm leading-relaxed italic">
-                        "Prosesnya cepat banget, dibantu dari awal sampai ACC. Recommended!"
+                        "Prosesnya cepat banget, dibantu dari awal sampai ACC. Mas Daffa Recommended banget!!."
                     </p>
 
                     <h4 class="mt-5 font-semibold text-gray-900">
-                        Budi Santoso
+                        Siti Khadijah
                     </h4>
                     <span class="text-xs text-gray-400">
                         Bekasi • Karyawan Swasta
@@ -678,15 +698,15 @@ Konsultasi Sekarang
 
                 <div class="relative z-10">
 
-                    <img src="/images/Hayaa.jpg" 
+                    <img src="/images/foto2.jpg" 
                         class="w-16 h-16 rounded-full mx-auto object-cover mb-4 border-2 border-white shadow">
 
                     <p class="text-gray-600 text-sm leading-relaxed italic">
-                        "DP bisa disesuaikan, cicilan ringan. Salesnya responsif!"
+                        "DP bisa disesuaikan, cicilan ringan. Salesnya Fast Respon bangetttt, Terbaikkk Mas Daffa!."
                     </p>
 
                     <h4 class="mt-5 font-semibold text-gray-900">
-                        Andi Pratama
+                        Donny Pamungkas
                     </h4>
                     <span class="text-xs text-gray-400">
                         Jakarta • Wirausaha
@@ -703,18 +723,18 @@ Konsultasi Sekarang
 
                 <div class="relative z-10">
 
-                    <img src="/images/Hayaa.jpg" 
+                    <img src="/images/foto3.jpg" 
                         class="w-16 h-16 rounded-full mx-auto object-cover mb-4 border-2 border-white shadow">
 
                     <p class="text-gray-600 text-sm leading-relaxed italic">
-                        "Pelayanan ramah dan profesional, unit cepat sampai!"
+                        "Pelayanan ramah dan profesional, unit cepat banget sampainya."
                     </p>
 
                     <h4 class="mt-5 font-semibold text-gray-900">
-                        Siti Rahma
+                        Siti Rahmawati
                     </h4>
                     <span class="text-xs text-gray-400">
-                        Bandung • Freelancer
+                        Bandung • Influencer
                     </span>
 
                 </div>

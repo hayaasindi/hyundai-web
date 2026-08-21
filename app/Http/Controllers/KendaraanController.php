@@ -15,9 +15,13 @@ class KendaraanController extends Controller
 
     public function show($slug)
     {
-        $mobil = Kendaraan::with(['images', 'specs'])
-            ->where('slug', $slug)
-            ->firstOrFail();
+        $mobil = Kendaraan::with([
+            'images',
+            'specs',
+            'variants'
+        ])
+        ->where('slug',$slug)
+        ->firstOrFail();
 
         return view('detail-kendaraan', compact('mobil'));
     }

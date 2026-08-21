@@ -324,7 +324,113 @@
 
         </div>
 
+                <!-- Variant -->
+        <div class="form-card animate">
+        <div class="section-title">
 
+        <div class="icon">
+        <i class="bi bi-car-front"></i>
+        </div>
+
+
+        <div>
+
+        <h5>
+        Tipe Kendaraan
+        </h5>
+
+        <small>
+        Tambahkan pilihan variant kendaraan
+        </small>
+
+        </div>
+
+        </div>
+
+
+
+        <div id="variant-container">
+
+
+        <div class="row mb-3 variant-item">
+
+
+        <div class="col-md-4">
+
+        <label>
+        Nama Tipe
+        </label>
+
+
+        <input type="text"
+        name="variant_nama[]"
+        class="form-control"
+        placeholder="Creta Prime">
+
+        </div>
+
+
+
+        <div class="col-md-4">
+
+        <label>
+        Harga
+        </label>
+
+
+        <input type="text"
+        name="variant_harga[]"
+        class="form-control"
+        placeholder="Rp429.000.000">
+
+        </div>
+
+
+
+        <div class="col-md-3">
+
+        <label>
+        Nomor WhatsApp
+        </label>
+
+
+        <input type="text"
+        name="variant_wa[]"
+        class="form-control"
+        placeholder="6285121546050">
+
+        </div>
+
+
+
+        <div class="col-md-1">
+
+        <button type="button"
+        class="btn btn-danger remove-variant mt-4">
+
+        X
+
+        </button>
+
+        </div>
+
+
+        </div>
+
+
+        </div>
+
+
+        <button type="button"
+        id="addVariant"
+        class="btn btn-outline-dark">
+
+        + Tambah Tipe
+
+        </button>
+
+
+        </div>
 
 
         <!-- SPESIFIKASI -->
@@ -719,6 +825,76 @@
 
         </div>
 
+        <div class="spec-header mt-3">
+
+        <i class="bi bi-stars"></i>
+
+        Fitur Unggulan
+
+        </div>
+
+
+        <div id="fitur-container">
+
+
+        <div class="row mb-3 fitur-item">
+
+
+        <div class="col-md-5">
+
+        <label>
+        Nama Fitur
+        </label>
+
+        <input type="text"
+        name="fitur_nama[]"
+        class="form-control"
+        placeholder="Contoh: Hyundai SmartSense">
+
+        </div>
+
+
+
+        <div class="col-md-5">
+
+        <label>
+        Deskripsi Fitur
+        </label>
+
+        <input type="text"
+        name="fitur_nilai[]"
+        class="form-control"
+        placeholder="Contoh: Sistem keselamatan aktif">
+
+        </div>
+
+
+
+        <div class="col-md-2 d-flex align-items-end">
+
+        <button type="button"
+        class="btn btn-danger remove-fitur">
+
+        Hapus
+
+        </button>
+
+        </div>
+
+
+        </div>
+
+
+        </div>
+
+
+        <button type="button"
+        id="addFitur"
+        class="btn btn-outline-dark">
+
+        + Tambah Fitur
+
+        </button>
 
 
 
@@ -892,6 +1068,155 @@
 
 </style>
 
+<script>
+
+document.getElementById('addFitur')
+.addEventListener('click',function(){
+
+let html = `
+
+<div class="row mb-3 fitur-item">
+
+
+<div class="col-md-5">
+
+<input type="text"
+name="fitur_nama[]"
+class="form-control"
+placeholder="Nama Fitur">
+
+</div>
+
+
+
+<div class="col-md-5">
+
+<input type="text"
+name="fitur_nilai[]"
+class="form-control"
+placeholder="Deskripsi">
+
+</div>
+
+
+<div class="col-md-2">
+
+<button type="button"
+class="btn btn-danger remove-fitur">
+
+Hapus
+
+</button>
+
+</div>
+
+
+</div>
+
+`;
+
+
+document
+.getElementById('fitur-container')
+.insertAdjacentHTML(
+'beforeend',
+html
+);
+
+
+});
+
+
+
+document.addEventListener('click',function(e){
+
+if(e.target.classList.contains('remove-fitur')){
+
+e.target.closest('.fitur-item').remove();
+
+}
+
+});
+
+document.getElementById('addVariant')
+.addEventListener('click',function(){
+
+
+let html = `
+
+<div class="row mb-3 variant-item">
+
+
+<div class="col-md-4">
+
+<input type="text"
+name="variant_nama[]"
+class="form-control"
+placeholder="Nama Tipe">
+
+</div>
+
+
+<div class="col-md-4">
+
+<input type="text"
+name="variant_harga[]"
+class="form-control"
+placeholder="Harga">
+
+</div>
+
+
+<div class="col-md-3">
+
+<input type="text"
+name="variant_wa[]"
+class="form-control"
+placeholder="WhatsApp">
+
+</div>
+
+
+<div class="col-md-1">
+
+<button type="button"
+class="btn btn-danger remove-variant">
+
+X
+
+</button>
+
+</div>
+
+
+</div>
+
+`;
+
+
+document
+.getElementById('variant-container')
+.insertAdjacentHTML(
+'beforeend',
+html
+);
+
+
+});
+
+
+document.addEventListener('click',function(e){
+
+if(e.target.classList.contains('remove-variant')){
+
+e.target.closest('.variant-item').remove();
+
+}
+
+});
+
+
+</script>
 
 @endsection
 

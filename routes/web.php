@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\BookingTestDriveController as AdminBookingTestDri
 use App\Http\Controllers\Admin\SimulasiKreditController;
 use App\Http\Controllers\KreditController; 
 use App\Http\Controllers\Admin\KonsultasiKreditController;
+use App\Http\Controllers\Auth\LoginController;
 
 
 Route::get('/', function () {
@@ -44,9 +45,23 @@ Route::post(
     [BookingTestDriveController::class,'store']
 )->name('booking.store');
 
+        Route::get('/login',
+            [LoginController::class,'index'])
+            ->name('login');
+
+
+            Route::post('/login',
+            [LoginController::class,'login']);
+
+
+            Route::post('/logout',
+            [LoginController::class,'logout'])
+            ->name('logout');
+
 Route::prefix('admin')
-    ->name('admin.')
-    ->group(function(){
+->name('admin.')
+->middleware(['auth','role:admin'])
+->group(function(){
 
     Route::get('/', function(){
 
@@ -89,6 +104,16 @@ Route::prefix('admin')
         Route::resource(
             'konsultasi',
             KonsultasiKreditController::class
+        );
+
+        Route::delete(
+            '/kendaraan/variant/{id}',
+            [
+            KendaraanController::class,
+            'deleteVariant'
+            ]
+            )
+            ->name('admin.kendaraan.variant.delete'
         );
 
     });

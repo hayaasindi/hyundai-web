@@ -374,29 +374,47 @@
 
 
 
-        <div class="admin-profile">
+    <div class="admin-profile">
 
-            <div class="profile-icon">
+        <div class="profile-icon">
 
-                <i class="bi bi-person-fill"></i>
-
-            </div>
-
-
-            <div>
-
-                <small class="text-muted d-block">
-                    Login as
-                </small>
-
-                <strong>
-                    Administrator
-                </strong>
-
-            </div>
-
+            <i class="bi bi-person-fill"></i>
 
         </div>
+
+
+        <div>
+
+            <small class="text-muted d-block">
+                Login as
+            </small>
+
+            <strong>
+                {{ Auth::user()->name }}
+            </strong>
+
+        </div>
+
+
+        <form action="{{ route('logout') }}" method="POST" class="ms-3">
+
+            @csrf
+
+            <button 
+                type="submit"
+                class="btn btn-outline-danger btn-sm">
+
+                <i class="bi bi-box-arrow-right me-1"></i>
+
+                Logout
+
+            </button>
+
+
+        </form>
+
+
+    </div>
 
 
     </nav>

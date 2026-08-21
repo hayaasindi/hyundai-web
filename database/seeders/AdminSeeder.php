@@ -16,7 +16,8 @@ class AdminSeeder extends Seeder
 
 
         $adminRole = Role::firstOrCreate([
-            'name'=>'Admin'
+            'name'=>'admin',
+            'guard_name'=>'web'
         ]);
 
 

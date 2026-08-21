@@ -10,17 +10,17 @@
 
         <!-- SLIDE 1 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-            <img src="/images/slider1.jpeg" class="w-full h-full object-cover">
+            <img src="/images/palisade.jpg" class="w-full h-full object-cover">
         </div>
 
         <!-- SLIDE 2 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-            <img src="/images/slider2.jpeg" class="w-full h-full object-cover">
+            <img src="/images/santa.avif" class="w-full h-full object-cover">
         </div>
 
         <!-- SLIDE 3 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-[1500]">
-            <img src="/images/slider3.jpeg" class="w-full h-full object-cover">
+            <img src="/images/ionic3.jpg" class="w-full h-full object-cover">
         </div>
 
     </div>
@@ -29,11 +29,10 @@
     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
         <div class="text-center text-white px-6">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                Galeri dan Aktivitas 
-                Sales
+                Temukan Mobil Impian Anda
             </h1>
             <p class="text-lg md:text-xl mb-6">
-                Hyundai Bekasi - Tambun Selatan Official
+                Hyundai Kalimalang Official
             </p>
         </div>
     </div>
@@ -85,7 +84,7 @@
 
                 <!-- TITLE -->
                 <h2 class="text-3xl md:text-4xl font-semibold text-[#0b1f3a] mb-6">
-                    Hyundai Bogor
+                    Hyundai Kalimalang Official
                 </h2>
 
                 <!-- DESC -->
@@ -122,126 +121,196 @@
 
 </section>
 
-<!-- SECTION BERITA -->
+<!-- SECTION DOCUMENTATION -->
+
 <section class="py-24 bg-white">
 
-    <div class="max-w-7xl mx-auto px-6">
+<div class="max-w-7xl mx-auto px-6">
 
-        <!-- TITLE -->
-        <div class="text-center mb-16 reveal">
-            <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
 
-            <h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
-                Dokumentasi Kegiatan
-            </h2>
+<!-- TITLE -->
 
-            <p class="text-gray-500 mt-3 max-w-xl mx-auto">
-                Momen pelayanan terbaik dan kepuasan pelanggan kami
-            </p>
-        </div>
+<div class="text-center mb-16 reveal">
 
-        <!-- GRID -->
-        <div class="grid md:grid-cols-3 gap-8">
+<div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
 
-            <!-- CARD 1 -->
-            <a href="https://www.hyundai.com" target="_blank" 
-               class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 reveal">
 
-                <div class="overflow-hidden">
-                    <img src="/images/dokumentasikegiatan.jpg" 
-                         class="w-full h-48 object-cover group-hover:scale-105 transition duration-500">
-                </div>
+<h2 class="text-3xl md:text-4xl font-semibold text-gray-900">
+Dokumentasi Pelayanan Customer
+</h2>
 
-                <div class="p-5">
-                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a] transition">
-                        Hyundai Luncurkan Mobil Listrik Terbaru
-                    </h3>
 
-                    <p class="text-gray-500 text-sm mt-2 leading-relaxed">
-                        Hyundai kembali menghadirkan inovasi kendaraan listrik dengan teknologi terbaru yang ramah lingkungan.
-                    </p>
-                </div>
+<p class="text-gray-500 mt-3 max-w-xl mx-auto">
+Momen pelayanan terbaik, test drive, hingga penyerahan kendaraan Hyundai kepada pelanggan kami.
+</p>
 
-            </a>
 
-            <!-- CARD 2 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
-                <div class="overflow-hidden">
-                    <img src="/images/dokumentasikegiatan2.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
-                </div>
-                <div class="p-5">
-                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Hyundai Raih Penghargaan Global
-                    </h3>
-                    <p class="text-gray-500 text-sm mt-2">
-                        Hyundai mendapatkan penghargaan internasional atas desain dan teknologi inovatif.
-                    </p>
-                </div>
-            </a>
+</div>
 
-            <!-- CARD 3 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
-                <div class="overflow-hidden">
-                    <img src="/images/dokumentasikegiatan3.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
-                </div>
-                <div class="p-5">
-                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Teknologi Keamanan Hyundai
-                    </h3>
-                    <p class="text-gray-500 text-sm mt-2">
-                        Fitur keamanan terbaru Hyundai memberikan perlindungan maksimal saat berkendara.
-                    </p>
-                </div>
-            </a>
 
-            <!-- CARD 4 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
-                <div class="overflow-hidden">
-                    <img src="/images/poster1.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
-                </div>
-                <div class="p-5">
-                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Hyundai Perluas Jaringan Dealer
-                    </h3>
-                    <p class="text-gray-500 text-sm mt-2">
-                        Hyundai terus memperluas jaringan dealer untuk meningkatkan pelayanan pelanggan.
-                    </p>
-                </div>
-            </a>
 
-            <!-- CARD 5 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
-                <div class="overflow-hidden">
-                    <img src="/images/poster2.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
-                </div>
-                <div class="p-5">
-                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Promo Spesial Hyundai 2026
-                    </h3>
-                    <p class="text-gray-500 text-sm mt-2">
-                        Nikmati berbagai promo menarik untuk pembelian kendaraan Hyundai tahun ini.
-                    </p>
-                </div>
-            </a>
+<!-- GALLERY -->
 
-            <!-- CARD 6 -->
-            <a href="#" class="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition reveal">
-                <div class="overflow-hidden">
-                    <img src="/images/poster3.jpg" class="w-full h-48 object-cover group-hover:scale-105 transition">
-                </div>
-                <div class="p-5">
-                    <h3 class="font-semibold text-lg text-gray-900 group-hover:text-[#0b1f3a]">
-                        Hyundai Fokus Kendaraan Masa Depan
-                    </h3>
-                    <p class="text-gray-500 text-sm mt-2">
-                        Hyundai berkomitmen menghadirkan kendaraan masa depan dengan teknologi canggih.
-                    </p>
-                </div>
-            </a>
 
-        </div>
+<div class="grid md:grid-cols-3 gap-6">
 
-    </div>
+
+
+<!-- FOTO BESAR -->
+
+<div class="md:col-span-2 group relative overflow-hidden rounded-[32px] reveal">
+
+
+<img src="/images/dokumentasikegiatan.jpg"
+class="w-full h-[520px] object-cover group-hover:scale-105 transition duration-700">
+
+
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+
+
+<div class="absolute bottom-8 left-8 text-white">
+
+<span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm">
+Customer Delivery
+</span>
+
+
+<h3 class="text-2xl font-semibold mt-4">
+Penyerahan Unit Hyundai Creta
+</h3>
+
+
+<p class="text-white/80 mt-2">
+Terima kasih telah mempercayakan perjalanan bersama Hyundai.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- ACHIEVEMENT CARD -->
+
+<div class="group relative overflow-hidden rounded-[32px] reveal">
+
+
+<img src="/images/month.jpeg"
+class="w-full h-[520px] object-cover group-hover:scale-105 transition duration-700">
+
+
+<!-- OVERLAY -->
+
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+
+
+
+<!-- CONTENT -->
+
+<div class="absolute bottom-8 left-8 text-white">
+
+
+<span class="bg-yellow-400 text-[#0b1f3a] px-4 py-2 rounded-full text-sm font-semibold">
+Achievement
+</span>
+
+
+
+<h3 class="text-3xl font-semibold mt-5">
+Rookie of The Month
+</h3>
+
+
+
+<p class="text-white/80 mt-3 leading-relaxed">
+Penghargaan atas pencapaian dan dedikasi dalam memberikan pelayanan terbaik kepada pelanggan Hyundai.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- FOTO 3 -->
+
+<div class="md:col-span-3 group relative overflow-hidden rounded-[32px] reveal">
+
+
+<img src="/images/dokumentasikegiatan3.jpg"
+class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-700">
+
+
+<div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+
+
+
+<div class="absolute bottom-8 left-8 text-white">
+
+
+<span class="bg-white/20 backdrop-blur-md px-4 py-2 rounded-full text-sm">
+Customer Experience
+</span>
+
+
+<h3 class="text-3xl font-semibold mt-4">
+Mendampingi Setiap Proses Pembelian Customer
+</h3>
+
+
+<p class="mt-2 text-white/80 max-w-2xl">
+Memberikan konsultasi terbaik mulai dari pemilihan kendaraan, penjelasan fitur, hingga membantu customer menemukan mobil Hyundai yang sesuai dengan kebutuhannya.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+<!-- FOTO 4 -->
+
+<div class="md:col-span-3 group relative overflow-hidden rounded-[32px] reveal">
+
+
+<img src="/images/dokumentasikegiatan2.jpg"
+class="w-full h-[400px] object-cover group-hover:scale-105 transition duration-700">
+
+
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+
+
+<div class="absolute bottom-8 left-8 text-white">
+
+
+<h3 class="text-3xl font-semibold">
+Membangun Kepercayaan Bersama Customer
+</h3>
+
+
+<p class="mt-2 text-white/80">
+Pelayanan profesional dari konsultasi hingga kendaraan diterima pelanggan.
+</p>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
 
 </section>
 

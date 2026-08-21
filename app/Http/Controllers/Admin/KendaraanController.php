@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\Models\KendaraanImage;
 use App\Models\KendaraanSpec;
+use App\Models\KendaraanVariant;
 
 class KendaraanController extends Controller
 {
@@ -106,7 +107,57 @@ class KendaraanController extends Controller
                 }
             }
         }
+        // SIMPAN FITUR KENDARAAN
 
+        if($request->fitur_nama){
+
+            foreach($request->fitur_nama as $index=>$nama){
+
+                if(!empty($nama)){
+
+                    KendaraanSpec::create([
+
+                        'kendaraan_id'=>$kendaraan->id,
+
+                        'kategori'=>'Fitur Unggulan',
+
+                        'nama'=>$nama,
+
+                        'nilai'=>$request->fitur_nilai[$index]
+
+                    ]);
+
+                }
+
+            }
+
+        }
+
+        if($request->variant_nama){
+
+        foreach($request->variant_nama as $index=>$nama){
+
+
+        if($nama){
+
+        KendaraanVariant::create([
+
+        'kendaraan_id'=>$kendaraan->id,
+
+        'nama'=>$nama,
+
+        'harga'=>$request->variant_harga[$index],
+
+        'whatsapp'=>$request->variant_wa[$index]
+
+        ]);
+
+
+        }
+
+        }
+
+        }
         return redirect()
             ->route('admin.kendaraan.index')
             ->with('success','Kendaraan berhasil ditambahkan');
@@ -117,7 +168,8 @@ class KendaraanController extends Controller
     {
         $kendaraan = Kendaraan::with([
             'images',
-            'specs'
+            'specs',
+            'variants'
         ])->findOrFail($id);
 
         return view(
@@ -203,6 +255,91 @@ class KendaraanController extends Controller
             }
         }
 
+        // TAMBAH FITUR BARU
+
+        if($request->fitur_nama){
+
+            foreach($request->fitur_nama as $index=>$nama){
+
+                if(!empty($nama)){
+
+
+                    KendaraanSpec::create([
+
+                        'kendaraan_id'=>$kendaraan->id,
+
+                        'kategori'=>'Fitur Unggulan',
+
+                        'nama'=>$nama,
+
+                        'nilai'=>$request->fitur_nilai[$index]
+
+                    ]);
+
+                }
+
+            }
+
+        }
+
+        // UPDATE VARIANT
+
+        if($request->variant_nama){
+
+
+        foreach($request->variant_nama as $index=>$nama){
+
+
+
+        if(!$nama){
+            continue;
+        }
+
+
+
+        if(!empty($request->variant_id[$index])){
+
+
+            KendaraanVariant::where(
+                'id',
+                $request->variant_id[$index]
+            )
+            ->update([
+
+                'nama'=>$nama,
+
+                'harga'=>$request->variant_harga[$index],
+
+                'whatsapp'=>$request->variant_wa[$index]
+
+            ]);
+
+
+
+        }else{
+
+
+            KendaraanVariant::create([
+
+                'kendaraan_id'=>$kendaraan->id,
+
+                'nama'=>$nama,
+
+                'harga'=>$request->variant_harga[$index],
+
+                'whatsapp'=>$request->variant_wa[$index]
+
+            ]);
+
+
+        }
+
+
+
+        }
+
+        }
+
         return redirect()
             ->route('admin.kendaraan.index')
             ->with('success','Kendaraan berhasil diperbarui');
@@ -218,6 +355,17 @@ class KendaraanController extends Controller
         return redirect()
             ->route('admin.kendaraan.index')
             ->with('success','Kendaraan berhasil dihapus');
+    }
+
+    public function deleteVariant($id)
+    {
+
+    KendaraanVariant::findOrFail($id)
+    ->delete();
+
+
+    return back();
+
     }
 
     

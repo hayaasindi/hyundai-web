@@ -8,7 +8,7 @@
                 <img src="/images/logo.png" alt="Hyundai" class="h-20 mb-4 brightness-0 invert">
 
                 <p class="text-gray-200 leading-relaxed text-sm">
-                    Hyundai Bekasi - Hyundai Tambun Selatan Official
+                    Hyundai Kalimalang - Hyundai Kalimalang Official
                 </p>
 
             </div>
@@ -31,14 +31,15 @@
                 <h3 class="text-lg font-semibold mb-4">Kontak</h3>
 
                 <p class="text-gray-200 text-sm mb-4">
-                    0851 2154 6050
+                    0851 2154 6050 / @hyundaimotorjkt
                 </p>
+
 
                 <div class="flex space-x-4">
                     <a href="#" class="hover:scale-110 transition duration-300">
                         <img src="/images/whatsapp.png" class="h-6 w-6 brightness-0 invert">
                     </a>
-                    <a href="#" class="hover:scale-110 transition duration-300">
+                    <a href="https://www.instagram.com/hyundaimotorjkt?igsh=MW5sb3duZ2doa2NzMQ%3D%3D&igsi=MW5sb3duZ2doa2NzMQ%3D%3D&utm_source=qr" class="hover:scale-110 transition duration-300">
                         <img src="/images/instagram.png" class="h-6 w-6 brightness-0 invert">
                     </a>
                 </div>
@@ -47,7 +48,7 @@
                 
                 <div class="flex items-center space-x-2 mt-4 text-sm text-gray-300">
                     <img src="/images/maps.png" class="h-6 w-6 brightness-0 invert">
-                    <span>Tambun Selatan, Bekasi</span>
+                    <span>Jl. Raya Kalimalang No.1A, RT.2/RW.10, Pd. Klp., Kec. Duren Sawit, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13450</span>
                 </div>
             </div>
 
@@ -59,7 +60,7 @@
             <p>© 2026 Hyundai Web. All rights reserved.</p>
 
             <p class="mt-2 md:mt-0">
-                Created by <span class="text-white font-semibold">HayaaAssindi</span>
+                Created by <span class="text-white font-semibold">MHA</span>
             </p>
 
         </div>

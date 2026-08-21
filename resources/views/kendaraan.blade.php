@@ -2,32 +2,52 @@
 
 @section('content')
 
-<section class="relative h-[65vh] overflow-hidden">
+<!-- HERO SLIDER -->
+<section class="relative w-full h-[90vh] overflow-hidden group">
 
-    <img 
-        src="/images/slider1.jpeg"
-        class="absolute inset-0 w-full h-full object-cover scale-105"
-    >
+    <!-- SLIDES -->
+    <div id="slider" class="w-full h-full relative">
 
-    <div class="absolute inset-0 bg-black/60"></div>
+        <!-- SLIDE 1 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="/images/palisade.jpg" class="w-full h-full object-cover">
+        </div>
 
-    <div class="relative z-10 h-full flex items-center justify-center text-center px-6">
+        <!-- SLIDE 2 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="/images/santa.avif" class="w-full h-full object-cover">
+        </div>
 
-        <div class="text-white reveal">
-
-            <div class="w-14 h-1 bg-white mx-auto mb-6 rounded"></div>
-
-            <h1 class="text-4xl md:text-6xl font-bold">
-                Pilihan Kendaraan Hyundai
-            </h1>
-
-            <p class="mt-5 text-gray-200 text-lg max-w-2xl mx-auto">
-                Jelajahi berbagai pilihan kendaraan Hyundai dengan teknologi terbaru dan desain futuristik.
-            </p>
-
+        <!-- SLIDE 3 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-[1500]">
+            <img src="/images/ionic3.jpg" class="w-full h-full object-cover">
         </div>
 
     </div>
+
+    <!-- OVERLAY -->
+    <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
+        <div class="text-center text-white px-6">
+            <h1 class="text-4xl md:text-6xl font-bold mb-4">
+                Temukan Mobil Impian Anda
+            </h1>
+            <p class="text-lg md:text-xl mb-6">
+                Hyundai Kalimalang Official
+            </p>
+        </div>
+    </div>
+
+    <!-- BUTTON LEFT -->
+    <button onclick="prevSlide()" 
+        class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
+        &#10094;
+    </button>
+
+    <!-- BUTTON RIGHT -->
+    <button onclick="nextSlide()" 
+        class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
+        &#10095;
+    </button>
 
 </section>
 

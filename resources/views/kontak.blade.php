@@ -5,131 +5,271 @@
 <!-- HERO SLIDER -->
 <section class="relative w-full h-[90vh] overflow-hidden group">
 
+    <!-- SLIDES -->
     <div id="slider" class="w-full h-full relative">
 
+        <!-- SLIDE 1 -->
         <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
-            <img src="/images/slider1.jpeg" class="w-full h-full object-cover">
+            <img src="/images/palisade.jpg" class="w-full h-full object-cover">
         </div>
 
-        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-            <img src="/images/slider2.jpeg" class="w-full h-full object-cover">
+        <!-- SLIDE 2 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-1000">
+            <img src="/images/santa.avif" class="w-full h-full object-cover">
         </div>
 
-        <div class="slide absolute inset-0 opacity-0 transition-opacity duration-1000">
-            <img src="/images/slider3.jpeg" class="w-full h-full object-cover">
+        <!-- SLIDE 3 -->
+        <div class="slide absolute inset-0 opacity-100 transition-opacity duration-[1500]">
+            <img src="/images/ionic3.jpg" class="w-full h-full object-cover">
         </div>
 
     </div>
 
     <!-- OVERLAY -->
     <div class="absolute inset-0 bg-black/50 flex items-center justify-center">
-        <div class="text-center text-white px-6 reveal">
+        <div class="text-center text-white px-6">
             <h1 class="text-4xl md:text-6xl font-bold mb-4">
-                Hubungi Kami
+                Temukan Mobil Impian Anda
             </h1>
-            <p class="text-lg md:text-xl text-white/80">
-                Konsultasi pembelian Hyundai dengan mudah dan cepat
+            <p class="text-lg md:text-xl mb-6">
+                Hyundai Kalimalang Official
             </p>
         </div>
     </div>
 
-    <!-- NAV BUTTON -->
+    <!-- BUTTON LEFT -->
     <button onclick="prevSlide()" 
-        class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-12 h-12 rounded-full opacity-0 group-hover:opacity-100 transition">
+        class="absolute left-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
         &#10094;
     </button>
 
+    <!-- BUTTON RIGHT -->
     <button onclick="nextSlide()" 
-        class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 text-white w-12 h-12 rounded-full opacity-0 group-hover:opacity-100 transition">
+        class="absolute right-6 top-1/2 -translate-y-1/2 bg-black/40 hover:bg-black/70 backdrop-blur-md text-white w-12 h-12 flex items-center justify-center rounded-full transition duration-300 shadow-lg opacity-0 group-hover:opacity-100">
         &#10095;
     </button>
 
 </section>
 
-<!-- SECTION INFO SALES -->
-<section class="py-24 bg-gray-50">
+<!-- SECTION SALES CONSULTANT -->
+<section class="py-28 bg-gray-100 overflow-hidden">
 
     <div class="max-w-6xl mx-auto px-6">
 
-        <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div class="grid md:grid-cols-2 gap-20 items-center">
 
-            <!-- FOTO (LEAN & PREMIUM) -->
-            <div class="reveal flex justify-center">
-                <div class="w-[260px]">
 
-                    <img src="/images/profilee.jpeg" 
-                        class="w-full h-[340px] object-cover rounded-xl shadow-sm">
+            <!-- FOTO SALES -->
+            <div class="reveal relative flex justify-center">
 
-                    <!-- NAME CARD -->
-                    <div class="mt-4 text-center">
-                        <h3 class="text-gray-900 font-semibold text-lg">
+
+                <div class="
+                    absolute
+                    w-72
+                    h-96
+                    border
+                    border-[#0b1f3a]/20
+                    rounded-3xl
+                    translate-x-6
+                    translate-y-6
+                "></div>
+
+
+
+                <div class="relative">
+
+
+                    <img src="/images/fotodaffa.png"
+                    class="
+                    w-[260px]
+                    md:w-[300px]
+                    h-[380px]
+                    object-cover
+                    rounded-3xl
+                    shadow-xl
+                    ">
+
+
+                    <!-- BADGE -->
+
+                    <div class="
+                        absolute
+                        -bottom-5
+                        left-1/2
+                        -translate-x-1/2
+                        bg-white
+                        shadow-lg
+                        rounded-2xl
+                        px-6
+                        py-4
+                        w-[260px]
+                        text-center
+                    ">
+
+
+                        <h3 class="
+                            font-semibold
+                            text-gray-900
+                            text-lg
+                        ">
                             Daffa Syaddad
                         </h3>
-                        <p class="text-gray-500 text-sm">
-                        Sales Hyundai
-                        <br>    
-                        Professional Consultant
+
+
+                        <p class="
+                            text-sm
+                            text-gray-500
+                            mt-1
+                        ">
+                            Hyundai Sales Consultant
                         </p>
+
+
                     </div>
 
+
                 </div>
+
+
             </div>
 
-            <!-- INFO -->
+
+
+
+            <!-- CONTENT -->
+
             <div class="reveal">
 
-                <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
-                <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 leading-snug mb-4">
-                    Konsultasi Kendaraan Hyundai
+
+                <span class="
+                    text-xs
+                    tracking-[3px]
+                    uppercase
+                    text-gray-500
+                    font-semibold
+                ">
+                    Hyundai Kalimalang Official
+                </span>
+
+
+
+                <h2 class="
+                    mt-4
+                    text-3xl
+                    md:text-4xl
+                    font-semibold
+                    text-[#0b1f3a]
+                    leading-tight
+                ">
+                    Konsultasi Kendaraan
+                    Dengan Lebih Mudah
                 </h2>
 
-                <div class="w-12 h-[2px] bg-[#0b1f3a] mb-6"></div>
 
-                <p class="text-gray-600 leading-relaxed mb-8 max-w-lg">
-                    Kami membantu Anda mendapatkan kendaraan Hyundai terbaik dengan proses yang cepat, transparan, dan profesional.
-                    Mulai dari pemilihan unit hingga pengajuan kredit, semua kami dampingi hingga selesai.
+
+                <div class="
+                    w-16
+                    h-1
+                    bg-[#0b1f3a]
+                    rounded-full
+                    mt-6
+                    mb-6
+                "></div>
+
+
+
+                <p class="
+                    text-gray-600
+                    leading-relaxed
+                    max-w-lg
+                ">
+                    Kami membantu Anda menemukan kendaraan Hyundai yang sesuai kebutuhan dengan proses yang transparan, cepat, dan profesional.
                 </p>
 
-                <!-- LIST -->
-                <div class="space-y-4 mb-10">
 
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center">
-                            <img src="/images/checklist.png" class="w-5 h-5 object-contain">
+
+                <!-- FEATURE -->
+
+                <div class="mt-8 space-y-5">
+
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">
+                            <img src="/images/checklist.png">
                         </div>
-                        <span class="text-gray-700 text-sm">
-                            Konsultasi cepat & tanpa biaya
-                        </span>
+
+                        <p>
+                            Konsultasi kendaraan gratis
+                        </p>
+
                     </div>
 
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center">
-                            <img src="/images/checklist.png" class="w-5 h-5 object-contain">
+
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">
+                            <img src="/images/checklist.png">
                         </div>
-                        <span class="text-gray-700 text-sm">
-                            Dibantu hingga proses disetujui
-                        </span>
+
+                        <p>
+                            Pendampingan proses kredit
+                        </p>
+
                     </div>
 
-                    <div class="flex items-center gap-4">
-                        <div class="w-10 h-10 rounded-lg border border-gray-200 flex items-center justify-center">
-                            <img src="/images/checklist.png" class="w-5 h-5 object-contain">
+
+
+                    <div class="feature-item">
+
+                        <div class="feature-icon">
+                            <img src="/images/checklist.png">
                         </div>
-                        <span class="text-gray-700 text-sm">
-                            Pilihan leasing terbaik
-                        </span>
+
+                        <p>
+                            Rekomendasi promo dan leasing terbaik
+                        </p>
+
                     </div>
+
+
 
                 </div>
 
-                <!-- BUTTON -->
+
+
                 <a href="https://wa.me/6285121546050?text=Halo%20saya%20ingin%20konsultasi%20mobil%20Hyundai"
-                   target="_blank"
-                   class="inline-flex items-center gap-3 bg-[#0b1f3a] text-white px-7 py-3 rounded-lg text-sm font-medium hover:bg-[#16345f] transition">
-                   Hubungi via WhatsApp →
+                target="_blank"
+                class="
+                inline-flex
+                mt-10
+                items-center
+                gap-3
+                bg-[#0b1f3a]
+                text-white
+                px-8
+                py-3.5
+                rounded-full
+                text-sm
+                font-medium
+                hover:-translate-y-1
+                transition
+                shadow-lg
+                ">
+
+                    Konsultasi Sekarang
+
+                    <span>
+                        →
+                    </span>
+
                 </a>
 
+
+
             </div>
+
 
         </div>
 
@@ -137,88 +277,140 @@
 
 </section>
 
-<!-- SECTION KONTAK DETAIL -->
-<section class="py-24 bg-white">
+<section class="py-28 bg-white">
 
-    <div class="max-w-6xl mx-auto px-6">
 
-        <!-- TITLE -->
-        <div class="text-center mb-16 reveal">
-            <div class="w-12 h-1 bg-[#0b1f3a] mx-auto mb-5 rounded"></div>
-            
-            <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 tracking-tight">
-                Hubungi Kami
-            </h2>
-            <p class="text-gray-500 mt-3 text-sm">
-                Informasi kontak untuk konsultasi dan pemesanan kendaraan
-            </p>
-        </div>
+<div class="max-w-6xl mx-auto px-6">
 
-        <!-- GRID CARD -->
-        <div class="grid md:grid-cols-3 gap-6">
 
-            <!-- CARD 1 -->
-            <div class="group bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition reveal">
+<div class="text-center reveal">
 
-                <!-- ICON (NO BG) -->
-                <img src="/images/whatsapp.png" 
-                     class="w-10 h-10 mx-auto mb-4 object-contain">
 
-                <!-- TEXT -->
-                <h3 class="text-gray-900 font-semibold text-base mb-1">
-                    WhatsApp
-                </h3>
+<span class="
+text-xs
+tracking-[3px]
+uppercase
+text-gray-400
+font-semibold
+">
+Contact Center
+</span>
 
-                <p class="text-gray-500 text-sm mb-4">
-                    +62 851-2154-6050
-                </p>
 
-                <!-- ACTION -->
-                <a href="https://wa.me/6285121546050"
-                   target="_blank"
-                   class="inline-block text-[#0b1f3a] text-sm font-medium group-hover:underline">
-                   Chat Sekarang →
-                </a>
+<h2 class="
+mt-4
+text-3xl
+md:text-4xl
+font-semibold
+text-[#0b1f3a]
+">
 
-            </div>
+Hubungi Kami
 
-            <!-- CARD 2 -->
-            <div class="group bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition reveal">
+</h2>
 
-                <img src="/images/mapss.png" 
-                     class="w-10 h-10 mx-auto mb-4 object-contain">
 
-                <h3 class="text-gray-900 font-semibold text-base mb-1">
-                    Lokasi
-                </h3>
+<p class="
+mt-3
+text-gray-500
+text-sm
+">
+Siap membantu kebutuhan kendaraan Hyundai Anda
+</p>
 
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    Hyundai Bekasi<br>
-                    Tambun Selatan
-                </p>
 
-            </div>
+</div>
 
-            <!-- CARD 3 -->
-            <div class="group bg-white border border-gray-200 rounded-xl p-6 text-center hover:shadow-lg transition reveal">
 
-                <img src="/images/service.png" 
-                     class="w-10 h-10 mx-auto mb-4 object-contain">
 
-                <h3 class="text-gray-900 font-semibold text-base mb-1">
-                    Jam Operasional
-                </h3>
+<div class="
+grid
+md:grid-cols-3
+gap-6
+mt-16
+">
 
-                <p class="text-gray-500 text-sm leading-relaxed">
-                    Senin - Sabtu<br>
-                    09.00 - 17.00
-                </p>
 
-            </div>
 
-        </div>
+<div class="contact-card reveal">
 
-    </div>
+
+<img src="/images/whatsapp.png">
+
+
+<h3>
+WhatsApp
+</h3>
+
+
+<p>
++62 851-2154-6050
+</p>
+
+
+<a href="https://wa.me/6285121546050"
+target="_blank">
+
+Chat Sekarang →
+
+</a>
+
+
+</div>
+
+
+
+
+<div class="contact-card reveal">
+
+
+<img src="/images/mapss.png">
+
+
+<h3>
+Lokasi Dealer
+</h3>
+
+
+<p>
+Hyundai Bekasi
+<br>
+Tambun Selatan
+</p>
+
+
+</div>
+
+
+
+
+<div class="contact-card reveal">
+
+
+<img src="/images/service.png">
+
+
+<h3>
+Jam Operasional
+</h3>
+
+
+<p>
+Senin - Sabtu
+<br>
+09.00 - 17.00
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
 
 </section>
 
@@ -310,4 +502,196 @@ document.addEventListener("DOMContentLoaded", function () {
     opacity: 1;
     transform: translateY(0);
 }
+
+.feature-item{
+
+display:flex;
+align-items:center;
+gap:15px;
+
+}
+
+
+.feature-icon{
+
+width:42px;
+height:42px;
+
+border-radius:12px;
+
+border:1px solid #e5e7eb;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+background:white;
+
+}
+
+
+.feature-icon img{
+
+width:20px;
+
+}
+
+
+
+.feature-item p{
+
+color:#374151;
+font-size:15px;
+
+}
+
+.contact-card{
+
+
+background:white;
+
+border:1px solid #e5e7eb;
+
+border-radius:24px;
+
+padding:35px 25px;
+
+text-align:center;
+
+transition:.4s;
+
+
+}
+
+
+.contact-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.08);
+
+}
+
+
+
+.contact-card img{
+
+width:45px;
+
+height:45px;
+
+object-fit:contain;
+
+margin:auto;
+
+margin-bottom:20px;
+
+}
+
+
+
+.contact-card h3{
+
+font-size:17px;
+
+font-weight:600;
+
+color:#111827;
+
+}
+
+
+
+.contact-card p{
+
+margin-top:8px;
+
+font-size:14px;
+
+color:#6b7280;
+
+line-height:1.7;
+
+}
+
+
+
+.contact-card a{
+
+display:inline-block;
+
+margin-top:18px;
+
+font-size:14px;
+
+font-weight:600;
+
+color:#0b1f3a;
+
+}
+
+
+
+.reveal{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:
+all .8s ease;
+
+}
+
+
+.reveal.active{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+
 </style>
+
+<script>
+
+
+const reveals =
+document.querySelectorAll(".reveal");
+
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+
+entries.forEach(entry=>{
+
+
+if(entry.isIntersecting){
+
+
+entry.target.classList.add("active");
+
+
+}
+
+
+});
+
+
+},{
+threshold:.15
+});
+
+
+reveals.forEach(el=>{
+
+observer.observe(el);
+
+});
+
+
+</script>
